@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AP Business with Personal Finance · Interactive Study Hub</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#172033;--muted:#667085;--line:#e4e7ec;--p:#5b5cf0;--p2:#7c3aed;--green:#0f9f6e;--red:#d92d20;--gold:#f59e0b;--nav:#101828}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}.app{display:grid;grid-template-columns:280px 1fr;min-height:100vh}aside{background:var(--nav);color:#fff;padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto}.brand{font-size:20px;font-weight:850;line-height:1.3}.tag{display:inline-block;margin:10px 0 18px;padding:5px 9px;border-radius:999px;background:#26354c;color:#dbe6f6;font-size:12px}nav button{width:100%;border:0;background:transparent;color:#cbd5e1;text-align:left;padding:11px 12px;border-radius:10px;margin:3px 0;cursor:pointer}nav button:hover,nav button.active{background:#25344a;color:#fff}.sideCard{margin-top:22px;padding:14px;border:1px solid #334155;border-radius:14px}.bar{height:8px;background:#334155;border-radius:99px;overflow:hidden;margin:8px 0}.bar>div{height:100%;background:linear-gradient(90deg,#60a5fa,#a78bfa);width:0}.statrow{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:#cbd5e1}.xp{color:#fde68a;font-weight:800}main{padding:34px;max-width:1220px;width:100%;margin:auto}.section{display:none}.section.active{display:block}.hero{padding:34px;border-radius:24px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;box-shadow:0 12px 30px rgba(30,41,59,.12)}.hero h1{font-size:35px;margin:0 0 10px}.hero p{max-width:820px;line-height:1.7;margin:0;opacity:.92}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin-top:20px}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:19px;box-shadow:0 7px 20px rgba(16,24,40,.045)}.card h3{margin:5px 0 8px}.pill{display:inline-block;background:#eef2ff;color:#4338ca;border-radius:999px;padding:4px 8px;font-size:12px;font-weight:700}.muted{color:var(--muted)}.small{font-size:13px}.btn{border:0;border-radius:10px;padding:10px 14px;background:var(--p);color:#fff;font-weight:750;cursor:pointer}.btn:hover{filter:brightness(.96)}.btn.secondary{background:#eef2ff;color:#4338ca}.btn.good{background:#0f9f6e}.unit{cursor:pointer;transition:.18s}.unit:hover{transform:translateY(-3px)}.lesson{margin-top:16px}.lesson details{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 15px;margin:9px 0}.lesson summary{font-weight:750;cursor:pointer}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.chip{font-size:12px;background:#f2f4f7;border:1px solid #eaecf0;padding:5px 8px;border-radius:999px}.quizQ{margin:15px 0;padding:17px;border:1px solid var(--line);border-radius:15px;background:#fff}.quizQ label{display:block;padding:7px 9px;border-radius:8px;cursor:pointer}.quizQ label:hover{background:#f8f9fb}.fb{font-weight:700;margin-top:8px}.goodtxt{color:var(--green)}.badtxt{color:var(--red)}.flash{min-height:230px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;cursor:pointer}.flash .answer{display:none;color:var(--muted);max-width:760px;line-height:1.7}.flash.show .answer{display:block}.field{margin:10px 0}.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:5px}.field input,.field select,.field textarea,textarea,select,input{width:100%;padding:10px 11px;border:1px solid #d0d5dd;border-radius:9px;background:#fff}.result{font-size:27px;font-weight:850;margin-top:12px}.projectGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.canvasBox{min-height:180px}.canvasBox textarea{min-height:100px;resize:vertical}.badgeBox{display:flex;gap:10px;flex-wrap:wrap}.award{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;filter:grayscale(1);opacity:.55}.award.unlocked{filter:none;opacity:1;border-color:#fcd34d;background:#fffbeb}.challenge{border-left:4px solid var(--p)}.scoreBig{font-size:36px;font-weight:900}.progressRing{width:110px;height:110px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--p) 0deg,#e8eaf0 0deg);margin:auto}.progressRing:after{content:"";width:78px;height:78px;background:#fff;border-radius:50%;position:absolute}.progressRing span{position:relative;z-index:1;font-weight:850}.notice{padding:12px 14px;border-radius:12px;background:#f0f9ff;border:1px solid #bae6fd;color:#075985}.exam{background:#fff7ed;border-color:#fed7aa}.timer{font-variant-numeric:tabular-nums;font-size:24px;font-weight:850}.locked{opacity:.55}.masterCard{padding:16px}.masterBar{height:9px;background:#eaecf0;border-radius:99px;overflow:hidden}.masterBar div{height:100%;background:linear-gradient(90deg,#5b5cf0,#7c3aed);width:0}.reviewItem{border-left:4px solid #d92d20}.examQ{background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px;margin:14px 0}.hidden{display:none!important}footer{margin:30px 0 8px;text-align:center;color:var(--muted);font-size:12px;line-height:1.6}@media(max-width:980px){.app{grid-template-columns:1fr}aside{height:auto;position:relative}nav{display:flex;overflow:auto;gap:5px}nav button{min-width:max-content}.grid,.grid2,.projectGrid{grid-template-columns:1fr}main{padding:20px}.hero h1{font-size:28px}}
+
+  .v5-topbar{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:18px}
+  .v5-stats{display:flex;gap:8px;flex-wrap:wrap}.v5-stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:13px}
+  .v5-shell{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px}.v5-sidecard{position:sticky;top:18px}
+  .v5-next{border:1px solid #dfe3ff;background:#f7f7ff;border-radius:14px;padding:14px}.v5-next strong{display:block;margin-bottom:6px}
+  .v5-unitrow{display:grid;grid-template-columns:72px 1fr 46px;gap:10px;align-items:center;margin:12px 0}.v5-progress{height:9px;background:#eceff3;border-radius:999px;overflow:hidden}.v5-progress>div{height:100%;background:linear-gradient(90deg,#6366f1,#8b5cf6)}
+  .v5-step{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line)}.v5-step:last-child{border-bottom:0}.v5-check{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#eef2ff;color:#4338ca;flex:none;font-weight:800}.v5-check.done{background:#dcfce7;color:#15803d}
+  .v5-chip{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 8px;font-size:11px;color:#475467}.v5-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .v5-toast{position:fixed;right:20px;bottom:20px;background:#111827;color:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.16);opacity:0;transform:translateY(12px);transition:.2s;z-index:50}.v5-toast.show{opacity:1;transform:translateY(0)}
+  .v5-table{width:100%;border-collapse:collapse}.v5-table th,.v5-table td{padding:10px;border-bottom:1px solid var(--line);text-align:left}.v5-table th{font-size:12px;color:var(--muted)}
+  .v5-mini{font-size:12px;color:var(--muted);line-height:1.55}.v5-highlight{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:12px}.v5-danger{background:#fef2f2;border-color:#fecaca}
+  @media(max-width:1050px){.v5-shell{grid-template-columns:1fr}.v5-sidecard{position:relative;top:auto}}
+
+
+.v7-wrap{display:grid;grid-template-columns:1fr 320px;gap:16px}.v7-panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.v7-q{padding:16px;border:1px solid var(--line);border-radius:14px;margin:12px 0}.v7-q label{display:block;padding:8px 9px;border-radius:8px;cursor:pointer}.v7-q label:hover{background:#f8fafc}.v7-tag{font-size:11px;padding:4px 7px;border-radius:999px;background:#f2f4f7;color:#475467;margin-right:5px}.v7-diff1{background:#ecfdf3;color:#047857}.v7-diff2{background:#eff6ff;color:#1d4ed8}.v7-diff3{background:#fff7ed;color:#c2410c}.v7-diff4{background:#fef2f2;color:#b91c1c}.v7-error{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.v7-chip{padding:5px 8px;border-radius:999px;background:#eef2ff;color:#4338ca;font-size:11px}.v7-score{font-size:34px;font-weight:900}.v7-sideitem{padding:11px 0;border-bottom:1px solid var(--line)}.v7-sideitem:last-child{border-bottom:0}.v7-plan{display:grid;gap:8px}.v7-row{display:flex;justify-content:space-between;gap:8px;align-items:center}.v7-weak{border:2px dashed #c7d2fe;background:#eef2ff}.v7-exit{margin-top:12px;padding:12px;border-radius:12px;background:#f8fafc}.v7-choice{display:inline-flex;align-items:center;gap:6px}.v7-mini{font-size:12px;color:var(--muted)}
+@media(max-width:1000px){.v7-wrap{grid-template-columns:1fr}}
+
+
+.v9-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}.v9-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:12px}.v9-table{width:100%;border-collapse:collapse}.v9-table th,.v9-table td{border-bottom:1px solid var(--line);padding:10px;text-align:left;font-size:13px}.v9-table th{color:var(--muted);font-weight:700}.v9-check{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}.v9-check input{width:auto}.v9-note{border-left:4px solid var(--p);padding:10px 12px;background:#f8faff;border-radius:8px}.v9-report{background:#fff;padding:24px;border:1px solid var(--line);border-radius:14px}.v9-print{display:none}@media print{aside,.top,.no-print{display:none!important}main{max-width:none;padding:0}.section{display:none!important}.section.printable{display:block!important}.v9-print{display:block}}
+</style>
+
+<style id="v6css">
+.v6dash{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px}.v6panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 7px 20px rgba(16,24,40,.045)}
+.v6tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.v6tab{padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;font-size:13px}.v6tab.active{background:#eef2ff;color:#4338ca;border-color:#c7d2fe;font-weight:750}
+.v6lesson{display:none}.v6lesson.active{display:block}.v6concept{padding:14px;border:1px solid var(--line);border-radius:13px;margin:10px 0}.v6concept h4{margin:0 0 7px}.v6source{font-size:11px;color:#667085}.v6qnav{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.v6qnav button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 9px;cursor:pointer}.v6qnav button.done{background:#dcfce7;border-color:#86efac}.v6qnav button.current{outline:2px solid #a5b4fc}
+.v6meter{height:10px;border-radius:99px;background:#eaecf0;overflow:hidden}.v6meter div{height:100%;background:linear-gradient(90deg,#6366f1,#8b5cf6)}.v6-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.v6-kpi{padding:14px;background:#f8fafc;border:1px solid var(--line);border-radius:12px}.v6-kpi strong{display:block;font-size:26px}.v6-checkrow{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.v6-path{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.v6-node{padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff}.v6-node.locked{background:#f8fafc}.v6-node .v6num{font-size:12px;color:var(--muted)}
+.v6-study-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.v6-action{display:flex;gap:8px;flex-wrap:wrap}.v6-big{font-size:38px;font-weight:900}.v6-mini{font-size:12px;color:var(--muted);line-height:1.6}
+@media(max-width:1050px){.v6dash,.v6-study-grid{grid-template-columns:1fr}.v6-kpis{grid-template-columns:repeat(2,1fr)}.v6-path{grid-template-columns:1fr}}
+</style>
+
+<style id="v10css">
+.v10-profile{display:grid;grid-template-columns:1fr 1fr;gap:14px}.v10-profile textarea{min-height:100px;resize:vertical}
+.v10-planner{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.v10-day{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px;text-align:center;min-height:82px}.v10-day strong{display:block;font-size:12px}.v10-day small{color:var(--muted)}.v10-day.done{border-color:#22c55e;background:#f0fdf4}.v10-day.today{outline:2px solid #6366f1}
+.v10-focus{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;align-items:stretch}.v10-clock{font-size:58px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:1px;text-align:center;padding:20px}.v10-ring{width:150px;height:150px;border-radius:50%;margin:10px auto;display:grid;place-items:center;background:conic-gradient(#6366f1 var(--pct,0%),#e5e7eb 0)}.v10-ring>div{width:118px;height:118px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800}
+.v10-fav{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;border:1px solid var(--line);padding:13px;border-radius:12px;background:#fff;margin:8px 0}.v10-fav .qtext{flex:1}.v10-star{border:0;background:transparent;font-size:23px;cursor:pointer}.v10-chip{display:inline-block;font-size:11px;padding:3px 7px;border-radius:99px;background:#f2f4f7;color:#475467;margin-right:5px}
+.v10-table{width:100%;border-collapse:collapse}.v10-table th,.v10-table td{padding:9px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}.v10-table th{background:#f8fafc}
+.v10-note{border-left:4px solid #6366f1;padding:10px 12px;background:#f5f3ff;border-radius:8px}.v10-ok{color:#059669}.v10-warn{color:#b54708}.v10-muted{color:var(--muted)}
+@media(max-width:900px){.v10-profile,.v10-focus{grid-template-columns:1fr}.v10-planner{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body><div class="app">
+<aside>
+  <div class="brand">AP Business<br>with Personal Finance</div><div class="tag">Interactive Study Hub · 2026–27</div>
+  <nav>
+    <button class="active" onclick="show('home',this)">🏠 学习首页</button>
+    <button onclick="show('units',this)">📚 Unit 1–5</button>
+    <button onclick="show('flash',this)">🧠 概念闪卡</button>
+    <button onclick="show('mastery',this)">📊 Unit 掌握度</button>
+    <button onclick="show('quiz',this)">✅ AP 风格题库</button>
+    <button onclick="show('calc',this)">🧮 理财实验室</button>
+    <button onclick="show('canvas',this)">🚀 Business Canvas</button>
+    <button onclick="show('advisor',this)">💰 Financial Advisor</button>
+    <button onclick="show('dashboard',this)">🏆 学习成就</button>
+    <button onclick="show('v10profile',this)">👤 我的学习档案</button>
+    <button onclick="show('v10planner',this)">🗓️ 学习计划</button>
+    <button onclick="show('v10focus',this)">⏳ 专注模式</button>
+    <button onclick="show('v10favorites',this)">⭐ 收藏题目</button>
+    <button onclick="show('exam',this)">⏱️ 模拟考试</button>
+    <button onclick="show('review',this)">🔁 错题复习</button>
+    <button onclick="show('v7practice',this)">🎯 自适应练习</button>
+    <button onclick="show('v7review',this)">🧩 错因诊断</button>
+        <button onclick="show('frq',this)">✍️ FRQ / 短答</button>
+      <button onclick="show('report',this)">📄 学习报告</button>
+<button onclick="showSection('teacher')">👩‍🏫 教师视图</button>
+    <button onclick="showSection('standards')">📚 Standards</button>
+    <button onclick="showSection('data')">💾 数据中心</button>
+    <button onclick="showSection('report')">🖨️ 学习报告</button>
+</nav>
+  <div class="sideCard"><div class="statrow"><span>总进度</span><b id="pct">0%</b></div><div class="bar"><div id="bar"></div></div><div class="statrow"><span>XP <span class="xp" id="xp">0</span></span><span>🪙 <b id="coins">0</b></span></div><div class="statrow" style="margin-top:6px"><span>🔥 连续学习</span><b id="streak">1 天</b></div></div>
+</aside>
+<main>
+
+<div class="v5-topbar"><div><b>学习控制台 V5</b><div class="muted small">今天的目标：学 1 个概念、做 5 道题、完成 1 次应用。</div></div><div class="v5-stats"><div class="v5-stat">⚡ XP <b id="v5xp">0</b></div><div class="v5-stat">🪙 <b id="v5coins">0</b></div><div class="v5-stat">🔥 <b id="v5streak">1</b> 天</div></div></div>
+<div class="v5-shell"><div>
+
+
+<section id="v5home" class="section">
+  <div class="hero"><h1>你的 AP Business 学习驾驶舱</h1><p>每一次刷题、闪卡、计算和项目提交都会回写到同一套学习进度中。系统会告诉你现在最值得练什么。</p></div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card"><span class="v5-chip">NOW</span><h3 id="v5recommend">先做 5 道 Unit 题</h3><p id="v5recommendText" class="muted">完成后系统会重新计算你的弱项。</p><div class="v5-actions"><button class="btn" id="v5goBtn" onclick="v5GoNext()">开始</button><button class="btn secondary" onclick="showSection('v5analytics')">看数据</button></div></div>
+    <div class="card"><span class="v5-chip">WEEK</span><h3>本周目标</h3><p class="muted">建议：完成 3 次题组、2 次闪卡复习、1 个项目证据更新。</p><div class="master"><div id="v5weekbar" style="width:0%"></div></div><div class="small muted" id="v5weektext">0/6 任务</div></div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>完整学习闭环</h3><div class="v5-step"><div class="v5-check done">1</div><div><b>Learn</b><div class="v5-mini">掌握一个概念和它的常见陷阱。</div></div></div><div class="v5-step"><div class="v5-check">2</div><div><b>Apply</b><div class="v5-mini">放到商业或个人理财情境里。</div></div></div><div class="v5-step"><div class="v5-check">3</div><div><b>Explain</b><div class="v5-mini">说清楚为什么这个答案成立。</div></div></div><div class="v5-step"><div class="v5-check">4</div><div><b>Review</b><div class="v5-mini">错题进入复习队列，直到真正掌握。</div></div></div></div>
+</section>
+<section id="v5analytics" class="section">
+  <h2>📊 学习数据</h2><div class="grid"><div class="card"><div class="result" id="v5mastery">0%</div><div class="muted">综合掌握度</div></div><div class="card"><div class="result" id="v5questions">0</div><div class="muted">已完成题目</div></div><div class="card"><div class="result" id="v5wrong">0</div><div class="muted">待复习错题</div></div></div>
+  <div class="card" style="margin-top:18px"><h3>Unit 诊断</h3><table class="v5-table"><thead><tr><th>Unit</th><th>主题</th><th>掌握</th><th>建议</th></tr></thead><tbody id="v5diag"></tbody></table></div>
+  <div class="card" style="margin-top:18px"><h3>学习行为</h3><p class="v5-highlight">高质量复习不只是提高正确率，还要减少“同一种错误重复出现”。当同一知识点连续答错时，优先回到闪卡和解释，再重新做题。</p><div class="v5-mini">数据保存在你的浏览器本地，不上传到服务器。</div></div>
+</section>
+
+<section id="home" class="section active">
+ <div class="hero"><h1>把 AP 商业与个人理财变成一场模拟人生。</h1><p>学习企业如何发现机会、营销、融资与制定战略，也学习个人如何借贷、预算、买房、投资与退休。每完成一次真实决策，就获得 XP 和金币。</p></div>
+ <div class="grid">
+  <div class="card"><span class="pill">AP Exam</span><h3>Unit 1–4</h3><p class="muted">企业、竞争、营销、储蓄借贷、会计、管理与战略。</p></div>
+  <div class="card"><span class="pill">Project</span><h3>Business Canvas</h3><p class="muted">从问题、顾客到价值主张、营销与财务，建立自己的创业项目。</p></div>
+  <div class="card"><span class="pill">Personal Finance</span><h3>Financial Advisor</h3><p class="muted">给虚拟家庭制定预算、教育、住房、保险、退休与投资方案。</p></div>
+  <div class="card"><span class="pill">Exam Mode</span><h3>60 分钟挑战</h3><p class="muted">混合题、计时、得分与错题回顾，模拟真实测试节奏。</p></div>
+ </div>
+ <div class="grid2" style="margin-top:18px">
+  <div class="card challenge"><h3>🎯 今日挑战</h3><p id="dailyTask">完成 1 组 AP 风格情境题。</p><button class="btn" onclick="jump('quiz')">开始挑战</button></div>
+  <div class="card"><h3>📅 2027 AP Exam</h3><p><b>2027 年 5 月 4 日 · Session 1</b></p><p class="muted small">全数字考试；网站训练重点放在情境分析、决策和项目验证。</p></div>
+ </div>
+</section>
+
+<section id="units" class="section"><h2>Unit 1–5 学习路径</h2><p class="muted">点击单元展开核心概念与知识检查。</p>
+ <div class="grid">
+  <div class="card unit" onclick="toggleLesson('u1')"><span class="pill">Unit 1 · Exam</span><h3>Businesses, Competition, and New Ideas</h3><p>企业、市场、竞争优势、PESTEL、创新、伦理、组织、供应链。</p></div>
+  <div class="card unit" onclick="toggleLesson('u2')"><span class="pill">Unit 2 · Exam</span><h3>Marketing</h3><p>顾客、消费者行为、调研、产品、定价、渠道、推广。</p></div>
+  <div class="card unit" onclick="toggleLesson('u3')"><span class="pill">Unit 3 · Exam</span><h3>Saving, Borrowing, Finance & Accounting</h3><p>储蓄借贷、信用、利息、融资、财务报表与财务决策。</p></div>
+  <div class="card unit" onclick="toggleLesson('u4')"><span class="pill">Unit 4 · Exam</span><h3>Management and Strategy</h3><p>组织管理、领导、KPI、SWOT、竞争战略与五力。</p></div>
+  <div class="card unit" onclick="toggleLesson('u5')"><span class="pill">Unit 5 · Personal Finance</span><h3>Personal Goals, Budgeting, and Investing</h3><p>收入、税、预算、风险管理、住房、教育、退休与投资。</p></div>
+ </div>
+ <div id="u1" class="lesson hidden"><h3>Unit 1 核心主题</h3><details open><summary>1.1 What Is a Business?</summary><p>企业通过组织资源来创造并交付价值，同时承担成本、风险和利益相关者责任。学习时区分 for-profit、nonprofit 与不同所有权形式。</p></details><details><summary>1.2 Markets & Competitive Advantage</summary><p>竞争优势通常来自成本、差异化、聚焦、资源能力或网络效应。重点不是“优势是什么”，而是“为什么顾客会因此选择你”。</p></details><details><summary>1.3 PESTEL</summary><p>Political / Economic / Social / Technological / Environmental / Legal。用于分析企业无法直接控制的外部环境变化。</p></details><details><summary>1.4–1.8 创意、愿景、伦理、组织与供应链</summary><p>识别未满足需求，构建愿景；从利益相关者角度评估伦理；明确组织角色，并分析供应链中的成本、可靠性与风险。</p></details><div class="chips"><span class="chip">Opportunity</span><span class="chip">Competitive Advantage</span><span class="chip">Stakeholder</span><span class="chip">Supply Chain</span></div></div>
+ <div id="u2" class="lesson hidden"><h3>Unit 2 核心主题</h3><details open><summary>2.1–2.3 顾客、行为、调研</summary><p>市场营销从顾客问题开始。Primary research 直接收集新数据；secondary research 使用既有资料。样本与问题设计会影响结果有效性。</p></details><details><summary>2.4 Product</summary><p>产品决策包括功能、质量、品牌、包装、产品线与生命周期，并应与目标细分市场匹配。</p></details><details><summary>2.5 Price</summary><p>价格影响需求、定位与利润。分析成本、竞争、顾客支付意愿以及 price elasticity。</p></details><details><summary>2.6–2.7 Place & Promotion</summary><p>渠道决定产品如何到达顾客；推广组合可包含广告、社交媒体、公关、促销和直接沟通。</p></details></div>
+ <div id="u3" class="lesson hidden"><h3>Unit 3 核心主题</h3><details open><summary>Personal Saving & Borrowing</summary><p>比较 APR、费用、期限、信用条件和总还款额；理解复利既能帮助储蓄，也会放大债务成本。</p></details><details><summary>Income Statement</summary><p>衡量一个期间的 revenue、expenses 与 profit。</p></details><details><summary>Balance Sheet</summary><p>某一时点的 Assets = Liabilities + Equity。</p></details><details><summary>Cash Flow Statement</summary><p>追踪现金流入与流出。盈利企业也可能因现金不足而遇到流动性问题。</p></details><details><summary>Business Finance</summary><p>企业融资可来自 retained earnings、debt 或 equity；每种方式都涉及控制权、成本和风险的权衡。</p></details></div>
+ <div id="u4" class="lesson hidden"><h3>Unit 4 核心主题</h3><details open><summary>Management & Leadership</summary><p>管理涉及目标、组织、执行和控制；领导更强调方向、激励与影响。</p></details><details><summary>KPI</summary><p>关键绩效指标应与战略目标相关、可衡量，并能帮助管理者判断是否需要行动。</p></details><details><summary>SWOT</summary><p>Strengths / Weaknesses 为内部因素；Opportunities / Threats 为外部因素。</p></details><details><summary>Porter's Five Forces</summary><p>行业竞争、潜在进入者、替代品、供应商议价力、买方议价力。</p></details></div>
+ <div id="u5" class="lesson hidden"><h3>Unit 5 核心主题</h3><details open><summary>Goals & Budgeting</summary><p>把目标转化为时间、金额和优先级；预算体现机会成本与取舍，而不只是记录支出。</p></details><details><summary>Risk Management</summary><p>保险适合转移低概率、高损失风险。比较 premium、deductible、coverage 与 exclusions。</p></details><details><summary>Postsecondary & Housing</summary><p>比较教育投资的成本、资助和潜在回报；住房决策同时考虑现金流、交易成本、风险和时间跨度。</p></details><details><summary>Retirement & Investing</summary><p>投资组合应与时间跨度、风险承受力和目标匹配。分散化降低集中风险，但不能消除市场风险。</p></details></div>
+</section>
+
+
+<section id="mastery" class="section"><h2>Unit 掌握度</h2><p class="muted">用题目、闪卡和项目活动累积每个单元的掌握度。</p><div class="grid" id="masteryGrid"></div><div class="card" style="margin-top:18px"><h3>怎么读</h3><p class="muted">掌握度不是考试分数，而是学习活动完成度。建议先补低于 60% 的单元，再做综合模拟。</p></div></section>
+
+<section id="flash" class="section"><h2>概念闪卡</h2><p class="muted">点击卡片翻面；掌握后标记“我会了”获得 XP。</p><div class="card flash" id="flashcard" onclick="flipFlash()"><span class="pill" id="ft">Unit 1</span><h3 id="fq">什么是 PESTEL？</h3><div class="answer" id="fa"></div></div><div style="display:flex;gap:10px;margin-top:12px"><button class="btn secondary" onclick="prevFlash(event)">上一张</button><button class="btn" onclick="nextFlash(event)">下一张</button><button class="btn good" onclick="masterFlash(event)">✓ 我会了</button></div></section>
+
+<section id="quiz" class="section"><h2>AP 风格情境题</h2><div class="notice exam"><b>训练模式：</b>题目使用短情境、数据和财务信息，重点训练 evidence-based decision making。以下为原创练习题。</div>
+ <div class="quizQ" data-a="b" data-exp="顾客为环保包装支付溢价，说明环保特征提高了感知价值，属于差异化。"><b>1. GreenSip 发现，虽然可堆肥杯使单杯成本增加 $0.18，但目标顾客愿意多付 $0.60。最能解释这一决策的是：</b><label><input type="radio" name="q1" value="a"> A. 成本领先</label><label><input type="radio" name="q1" value="b"> B. 差异化创造了更高顾客价值</label><label><input type="radio" name="q1" value="c"> C. 供应商议价能力下降</label><label><input type="radio" name="q1" value="d"> D. 固定成本下降</label><div class="fb"></div></div>
+ <div class="quizQ" data-a="c" data-exp="应付账款是企业欠供应商的金额，因此属于负债并出现在资产负债表。"><b>2. 一家零售商年末尚未支付 $14,000 的供应商货款。该项目最可能记录为：</b><label><input type="radio" name="q2" value="a"> A. Revenue</label><label><input type="radio" name="q2" value="b"> B. Operating expense only</label><label><input type="radio" name="q2" value="c"> C. Accounts payable</label><label><input type="radio" name="q2" value="d"> D. Owner's equity</label><div class="fb"></div></div>
+ <div class="quizQ" data-a="a" data-exp="新的低价替代品来自组织外部，可能削弱需求，因此属于 Threat。"><b>3. 某软件公司发现免费替代工具快速增长。在 SWOT 中最合理的分类是：</b><label><input type="radio" name="q3" value="a"> A. Threat</label><label><input type="radio" name="q3" value="b"> B. Weakness</label><label><input type="radio" name="q3" value="c"> C. Strength</label><label><input type="radio" name="q3" value="d"> D. Internal capability</label><div class="fb"></div></div>
+ <div class="quizQ" data-a="d" data-exp="样本只来自已有忠诚顾客，会产生选择偏差，不能很好代表潜在市场。"><b>4. 一家新零食品牌只调查自己的 Instagram 粉丝，然后结论称“全国消费者都喜欢新口味”。最大问题是：</b><label><input type="radio" name="q4" value="a"> A. 样本过大</label><label><input type="radio" name="q4" value="b"> B. 使用了 primary research</label><label><input type="radio" name="q4" value="c"> C. 调查包含定量数据</label><label><input type="radio" name="q4" value="d"> D. 样本可能无法代表目标市场</label><div class="fb"></div></div>
+ <div class="quizQ" data-a="b" data-exp="更长时间通常增加复利增长的作用；越早开始意味着资金有更多增长期。"><b>5. 两位投资者投入相同总本金并获得相同年收益率。其他条件相同，较早开始投资者通常更可能拥有更高终值，因为：</b><label><input type="radio" name="q5" value="a"> A. APR 会自动下降</label><label><input type="radio" name="q5" value="b"> B. 资金有更长时间复利增长</label><label><input type="radio" name="q5" value="c"> C. 通胀停止影响资产</label><label><input type="radio" name="q5" value="d"> D. 投资风险被完全消除</label><div class="fb"></div></div>
+ <button class="btn" onclick="gradeQuiz()">提交本组</button><div id="quizScore" class="result"></div>
+</section>
+
+<section id="calc" class="section"><h2>个人理财实验室</h2><p class="muted">用数字感受时间、利率与决策之间的关系。</p><div class="grid2">
+ <div class="card"><h3>复利增长</h3><div class="field"><label>本金 ($)</label><input id="p" type="number" value="1000"></div><div class="field"><label>年收益率 (%)</label><input id="r" type="number" value="7"></div><div class="field"><label>年数</label><input id="y" type="number" value="10"></div><button class="btn" onclick="compound()">计算</button><div class="result" id="cres">$1,967.15</div><p class="small muted">FV = P(1+r)^t</p></div>
+ <div class="card"><h3>贷款月供</h3><div class="field"><label>贷款金额 ($)</label><input id="loan" type="number" value="12000"></div><div class="field"><label>APR (%)</label><input id="apr" type="number" value="8"></div><div class="field"><label>期限（月）</label><input id="months" type="number" value="36"></div><button class="btn" onclick="payment()">计算</button><div class="result" id="pres">$376.04 / 月</div><p class="small muted" id="loanTotal"></p></div>
+ <div class="card"><h3>预算分配器</h3><div class="field"><label>每月税后收入 ($)</label><input id="income" type="number" value="3500"></div><div class="field"><label>必要支出 ($)</label><input id="needs" type="number" value="1900"></div><div class="field"><label>灵活支出 ($)</label><input id="wants" type="number" value="700"></div><button class="btn" onclick="budget()">分析</button><div id="budgetOut" style="margin-top:12px"></div></div>
+ <div class="card"><h3>目标储蓄</h3><div class="field"><label>目标金额 ($)</label><input id="goal" type="number" value="6000"></div><div class="field"><label>当前已有 ($)</label><input id="saved" type="number" value="1200"></div><div class="field"><label>剩余月数</label><input id="goalMonths" type="number" value="12"></div><button class="btn" onclick="goalCalc()">计算</button><div class="result" id="goalOut">$400.00 / 月</div></div>
+</div></section>
+
+<section id="canvas" class="section"><h2>Business Canvas Project 模拟器</h2><div class="notice"><b>任务：</b>设计一个真实可测试的商业想法。内容会自动保存在你的浏览器中。</div><div class="projectGrid" style="margin-top:16px">
+ <div class="card canvasBox"><h3>1. Customer Problem</h3><textarea id="bcProblem" placeholder="顾客遇到什么具体问题？"></textarea></div>
+ <div class="card canvasBox"><h3>2. Target Customer</h3><textarea id="bcCustomer" placeholder="谁最需要这个解决方案？"></textarea></div>
+ <div class="card canvasBox"><h3>3. Value Proposition</h3><textarea id="bcValue" placeholder="为什么顾客会选择你？"></textarea></div>
+ <div class="card canvasBox"><h3>4. Product / Solution</h3><textarea id="bcProduct" placeholder="你的产品或服务是什么？"></textarea></div>
+ <div class="card canvasBox"><h3>5. Channels & Promotion</h3><textarea id="bcChannel" placeholder="如何找到并触达顾客？"></textarea></div>
+ <div class="card canvasBox"><h3>6. Revenue & Costs</h3><textarea id="bcFinance" placeholder="怎么赚钱？主要成本是什么？"></textarea></div>
+ </div><div class="card" style="margin-top:16px"><h3>Evidence Log</h3><textarea id="bcEvidence" rows="5" placeholder="记录访谈、调查、测试结果，以及你根据证据做出的调整。"></textarea><p><button class="btn" onclick="saveCanvas()">保存项目 + 获得 XP</button> <button class="btn secondary" onclick="canvasPrompt()">生成下一步检查</button></p><div id="canvasOut"></div></div>
+</section>
+
+<section id="advisor" class="section"><h2>Financial Advisor Project</h2><div class="card"><span class="pill">Fictional Household</span><h3>Chen Family Profile</h3><p>税后月收入 <b>$7,200</b>；必要支出 <b>$4,150</b>；其他支出 <b>$1,250</b>；应急储蓄 <b>$4,000</b>；信用卡债务 <b>$8,500 @ 19.9% APR</b>。目标：3 年后支付 $18,000 教育费用，6 年后准备购房首付，并开始退休投资。</p></div>
+ <div class="grid2" style="margin-top:16px"><div class="card"><h3>你的优先级</h3><select id="advPriority"><option value="">选择第一优先事项</option><option value="debt">降低高息信用卡债务</option><option value="house">把全部结余投入购房首付</option><option value="invest">把全部结余投入高波动投资</option></select><div class="field"><label>建议每月用于该目标 ($)</label><input id="advAmount" type="number" value="1200"></div><button class="btn" onclick="advisorAnalyze()">评估建议</button><div id="advOut" style="margin-top:12px"></div></div>
+ <div class="card"><h3>Advisor Memo</h3><textarea id="advMemo" rows="9" placeholder="用证据解释：预算如何调整？债务怎么处理？教育、住房和退休目标如何排序？风险如何管理？"></textarea><p><button class="btn" onclick="saveAdvisor()">保存建议</button></p></div></div>
+</section>
+
+
+<section id="exam" class="section"><h2>60 分钟模拟考试</h2><div class="notice exam"><b>训练模式：</b> 下面是一组精简的混合情境题，用来练习节奏。不是 College Board 官方试题。</div><div class="grid2" style="margin-top:16px"><div class="card"><div class="timer" id="examTimer">60:00</div><p class="muted small">建议：先完成会做的，再回头处理计算题。</p><button class="btn" onclick="startExam()">开始 / 重置计时</button> <button class="btn secondary" onclick="submitExam()">提交模拟</button></div><div class="card"><div class="scoreBig" id="examScore">—</div><div class="muted">最近一次得分</div></div></div><div id="examQs" style="margin-top:16px"></div></section>
+<section id="review" class="section"><h2>错题复习队列</h2><p class="muted">把做错的题重新做一遍，并阅读原因。</p><div id="reviewList"></div><div class="card"><h3>复习原则</h3><p class="muted">先解释“为什么错”，再记答案；能够说出证据、变量和因果关系，比单纯记选项更重要。</p></div></section>
+
+<section id="dashboard" class="section"><h2>学习成就</h2><div class="grid"><div class="card" style="text-align:center"><div class="scoreBig" id="dashXp">0</div><div class="muted">XP</div></div><div class="card" style="text-align:center"><div class="scoreBig" id="dashCoins">0</div><div class="muted">金币</div></div><div class="card" style="text-align:center"><div class="scoreBig" id="dashStreak">1</div><div class="muted">连续学习天数</div></div></div><h3 style="margin-top:24px">徽章</h3><div class="badgeBox"><div class="award" id="bQuiz">🧠 情境分析师<br><span class="small">完成 AP 风格题</span></div><div class="award" id="bCalc">📈 理财实验员<br><span class="small">使用 3 种计算器</span></div><div class="award" id="bCanvas">🚀 创业设计师<br><span class="small">保存 Business Canvas</span></div><div class="award" id="bAdvisor">💼 财务顾问<br><span class="small">完成家庭建议</span></div><div class="award" id="bMaster">🏆 全能学习者<br><span class="small">解锁前 4 枚徽章</span></div></div><div class="card" style="margin-top:18px"><h3>学习建议</h3><p id="nextStep">先完成一组 AP 风格题，建立你的初始水平。</p></div></section>
+
+</div><aside class="v5-sidecard"><div class="card"><h3>你的下一步</h3><div class="v5-next" id="v5next"><strong>先完成第一组题</strong><span class="v5-mini">系统会根据掌握度推荐下一项任务。</span></div><div style="margin-top:14px"><b>课程掌握</b><div id="v5units"></div></div><div style="margin-top:14px"><b>今日清单</b><div id="v5tasks"></div></div></div></aside></div>
+
+<section id="v6" class="section">
+  <div class="v6dash">
+    <div>
+      <div class="v6panel">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><div><span class="pill">V6 · Mastery Path</span><h2 style="margin:8px 0 5px">你的下一步学习路径</h2><p class="muted">系统根据 Unit 掌握度、最近错题和学习活动自动决定下一站。</p></div><div class="v6-big" id="v6Mastery">0%</div></div>
+        <div class="v6meter"><div id="v6MasteryBar"></div></div>
+        <div class="v6tabs" id="v6Tabs"></div>
+        <div id="v6LessonArea"></div>
+      </div>
+      <div class="v6-study-grid" style="margin-top:16px">
+        <div class="v6panel"><h3>今日 20 分钟 Sprint</h3><div id="v6Sprint"></div><div class="v6-action" style="margin-top:10px"><button class="btn" onclick="v6StartSprint()">开始 Sprint</button><button class="btn secondary" onclick="v6CompleteSprint()">完成 Sprint</button></div></div>
+        <div class="v6panel"><h3>薄弱点诊断</h3><div id="v6Weak"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="v6panel"><h3>学习统计</h3><div class="v6-kpis"><div class="v6-kpi"><strong id="v6Q">0</strong><span class="v6-mini">练习题</span></div><div class="v6-kpi"><strong id="v6Accuracy">0%</strong><span class="v6-mini">准确率</span></div><div class="v6-kpi"><strong id="v6Wrong">0</strong><span class="v6-mini">错题</span></div><div class="v6-kpi"><strong id="v6Days">0</strong><span class="v6-mini">学习天数</span></div></div></div>
+      <div class="v6panel" style="margin-top:16px"><h3>五单元路线</h3><div class="v6-path" id="v6Path"></div></div>
+      <div class="v6panel" style="margin-top:16px"><h3>学习检查清单</h3><div id="v6Checklist"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="v7practice" class="section">
+  <h2>🎯 自适应练习</h2>
+  <p class="muted">系统优先抽取你最薄弱的 Unit，再根据连续正确/错误调整难度。</p>
+  <div class="v7-wrap">
+    <div class="v7-panel">
+      <div class="v7-row"><div><span id="v7UnitTag" class="v7-tag">UNIT 1</span><span id="v7DiffTag" class="v7-tag v7-diff2">Medium</span></div><div class="v7-mini">题目 <b id="v7N">1</b></div></div>
+      <h3 id="v7Q" style="margin-top:16px"></h3>
+      <div id="v7Opts"></div>
+      <div id="v7Feedback" class="v7-exit"></div>
+      <div style="display:flex;gap:8px;margin-top:12px"><button class="btn" onclick="v7Submit()">提交答案</button><button class="btn secondary" onclick="v7Next()">下一题</button></div>
+    </div>
+    <div>
+      <div class="v7-panel v7-weak"><h3>本轮策略</h3><div id="v7Strategy">—</div></div>
+      <div class="v7-panel" style="margin-top:12px"><h3>本轮统计</h3><div class="v7-sideitem"><b id="v7Round">0</b><div class="v7-mini">已答</div></div><div class="v7-sideitem"><b id="v7RoundAcc">0%</b><div class="v7-mini">准确率</div></div><div class="v7-sideitem"><b id="v7RoundStreak">0</b><div class="v7-mini">连续答对</div></div></div>
+    </div>
+  </div>
+</section>
+<section id="v7review" class="section">
+  <h2>🧩 错因诊断</h2><p class="muted">不仅记录“错了哪题”，还记录错误类型，帮助你知道为什么会错。</p>
+  <div class="grid2"><div class="card"><h3>错误类型分布</h3><div id="v7Errors"></div></div><div class="card"><h3>今日复习计划</h3><div id="v7Plan" class="v7-plan"></div></div></div>
+  <div class="card" style="margin-top:16px"><h3>个性化复习处方</h3><div id="v7Prescription"></div></div>
+</section>
+
+
+<section id="frq" class="section">
+<h2>✍️ FRQ / 短答训练</h2>
+<p class="muted">练习“Claim → Evidence → Reasoning”。先自己作答，再用 Rubric 自评。</p>
+<div class="card"><span class="pill">Unit 3 · Finance</span><h3>情境</h3><p>一家小企业销售增长 18%，但经营现金连续两个月为负。老板认为“利润增长说明公司不需要担心现金”。</p><p><b>任务：</b>解释为什么利润与现金流可能不同，并提出一项管理行动。</p><textarea id="frqAnswer" rows="8" placeholder="写出你的 Claim、Evidence/Concept、Reasoning..." style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:9px"></textarea><div style="margin-top:10px"><button class="btn" onclick="scoreFRQ()">Rubric 自评</button></div><div id="frqOut" style="margin-top:14px"></div></div>
+<div class="grid" style="margin-top:16px"><div class="card"><h3>1 · Claim</h3><p class="muted">是否直接回答问题，而不是只重复题干？</p></div><div class="card"><h3>2 · Evidence</h3><p class="muted">是否正确使用应收账款、存货、付款时间等商业概念？</p></div><div class="card"><h3>3 · Reasoning</h3><p class="muted">是否解释概念如何导致题目中的结果？</p></div></div>
+</section>
+<section id="report" class="section">
+<h2>📄 学习报告</h2><p class="muted">汇总当前浏览器中保存的学习数据。可以打印为 PDF，交给老师或自己存档。</p>
+<div class="card" id="reportCard"><h3>AP Business with Personal Finance · Progress Report</h3><div id="reportStats"></div><h3>Unit Mastery</h3><div id="reportUnits"></div><h3>下一步</h3><div id="reportNext"></div></div><div style="margin-top:12px"><button class="btn" onclick="buildReport()">刷新报告</button> <button class="btn secondary" onclick="window.print()">打印 / 保存 PDF</button></div>
+</section>
+
+<section id="teacher" class="section">
+<h2>👩‍🏫 教师视图</h2><p class="muted">本地班级管理模式：学生可把自己的学习摘要导出，再由教师汇总查看。</p>
+<div class="grid2"><div class="card"><h3>班级概览</h3><div class="grid"><div><div class="result" id="tXp">0</div><div class="muted small">学生 XP</div></div><div><div class="result" id="tMastery">0%</div><div class="muted small">平均掌握度</div></div><div><div class="result" id="tWrong">0</div><div class="muted small">待复习错题</div></div></div></div>
+<div class="card"><h3>教学提醒</h3><div id="teacherTips"></div></div></div>
+<div class="card" style="margin-top:16px"><h3>单元数据</h3><table class="v9-table"><thead><tr><th>Unit</th><th>掌握度</th><th>建议教学动作</th></tr></thead><tbody id="teacherTable"></tbody></table></div>
+</section>
+<section id="standards" class="section">
+<h2>📚 课程标准检查表</h2><p class="muted">用学习证据检查“会不会”，而不只是检查“看过没有”。</p>
+<div class="card" id="standardsBox"></div>
+</section>
+<section id="data" class="section">
+<h2>💾 数据中心</h2><div class="grid2"><div class="card"><h3>导出学习档案</h3><p class="muted">把当前学习数据保存成 JSON，可备份或交给教师。</p><button class="btn" onclick="exportData()">下载学习档案</button><pre id="exportPreview" class="small" style="white-space:pre-wrap;margin-top:12px"></pre></div>
+<div class="card"><h3>导入学习档案</h3><input type="file" id="importFile" accept="application/json"><button class="btn secondary" style="margin-top:10px" onclick="importData()">导入</button><div id="importOut" class="muted small" style="margin-top:10px"></div></div></div>
+</section>
+<section id="report" class="section printable">
+<div class="v9-top"><div><h2 style="margin:0">🖨️ AP Business with Personal Finance 学习报告</h2><div class="muted small">个人学习摘要</div></div><button class="btn no-print" onclick="window.print()">打印 / 保存 PDF</button></div>
+
+</section>
+
+<section id="v10profile" class="section">
+  <h2>👤 我的学习档案</h2>
+  <p class="muted">把“我要学好 AP”变成可执行目标。信息只保存在当前浏览器。</p>
+  <div class="v10-profile">
+    <div class="card">
+      <div class="field"><label>学习者名称</label><input id="v10name" placeholder="例如：Alex"></div>
+      <div class="field"><label>目标考试月份</label><input id="v10examMonth" type="month"></div>
+      <div class="field"><label>每周可投入小时</label><input id="v10hours" type="number" min="1" max="30" value="5"></div>
+      <div class="field"><label>当前信心</label><select id="v10confidence"><option>刚开始</option><option>有基础</option><option>比较熟悉</option><option>接近考试状态</option></select></div>
+      <button class="btn" onclick="v10SaveProfile()">保存档案</button>
+      <div id="v10ProfileOut" style="margin-top:10px"></div>
+    </div>
+    <div class="card">
+      <h3>学习目标</h3>
+      <div class="field"><label>本周重点</label><textarea id="v10goal" placeholder="例如：把 Unit 3 的财务报表从 40% 提升到 65%。"></textarea></div>
+      <button class="btn secondary" onclick="v10SaveGoal()">保存目标</button>
+      <div class="v10-note" style="margin-top:12px"><b>建议：</b>目标最好写成“单元 + 指标 + 截止时间”，而不只是“多做题”。</div>
+    </div>
+  </div>
+</section>
+
+<section id="v10planner" class="section">
+  <h2>🗓️ 学习计划</h2>
+  <p class="muted">计划会根据当前最弱 Unit 生成。点击当天可标记完成。</p>
+  <div class="card"><div id="v10PlanSummary"></div><div class="v10-planner" id="v10PlannerGrid" style="margin-top:12px"></div></div>
+  <div class="grid2">
+    <div class="card"><h3>本周建议分配</h3><div id="v10PlanAdvice"></div></div>
+    <div class="card"><h3>完成记录</h3><div id="v10PlanLog" class="muted small"></div></div>
+  </div>
+</section>
+
+<section id="v10focus" class="section">
+  <h2>⏳ 专注模式</h2>
+  <p class="muted">25 分钟学习 + 5 分钟休息。关闭页面前不会丢失当前计时状态。</p>
+  <div class="v10-focus">
+    <div class="card" style="text-align:center"><div class="v10-ring" id="v10Ring"><div><span id="v10Clock">25:00</span></div></div><div><button class="btn" onclick="v10StartFocus()">开始</button><button class="btn secondary" onclick="v10PauseFocus()" style="margin-left:7px">暂停</button><button class="btn secondary" onclick="v10ResetFocus()" style="margin-left:7px">重置</button></div><div id="v10FocusMsg" class="muted small" style="margin-top:10px">准备开始一个专注区间。</div></div>
+    <div class="card"><h3>当前 Focus Card</h3><div id="v10FocusCard"></div><button class="btn secondary" onclick="v10PickFocus()">换一个重点</button></div>
+  </div>
+</section>
+
+<section id="v10favorites" class="section">
+  <h2>⭐ 收藏题目</h2>
+  <p class="muted">把“我想再看一次”的题目集中起来，适合考前快速复盘。</p>
+  <div id="v10FavList"></div>
+</section>
+
+<footer>依据 College Board AP Business with Personal Finance 2026–27 官方课程结构设计。练习题、案例与项目反馈均为原创学习材料，不是 College Board 官方试题或评分结果。</footer>
+</main></div>
+<script>
+const defaultState={xp:0,coins:0,quiz:false,calcCount:0,canvas:false,advisor:false,flashMaster:0,lastDate:'',streak:1,mastery:{u1:0,u2:0,u3:0,u4:0,u5:0},wrong:[]};
+let savedState=JSON.parse(localStorage.getItem('apbpf-v3')||localStorage.getItem('apbpf-v2')||'{}'); let s=Object.assign({},defaultState,savedState,{mastery:Object.assign({},defaultState.mastery,savedState.mastery||{}),wrong:savedState.wrong||[]});
+function today(){return new Date().toISOString().slice(0,10)}
+function updateStreak(){const t=today();if(!s.lastDate){s.lastDate=t;s.streak=1}else if(s.lastDate!==t){let a=new Date(s.lastDate+'T00:00:00'),b=new Date(t+'T00:00:00'),d=Math.round((b-a)/86400000);s.streak=d===1?s.streak+1:1;s.lastDate=t}}
+function save(){localStorage.setItem('apbpf-v3',JSON.stringify(s));renderStats();renderMastery();renderReview()}
+function award(xp,coins){s.xp+=xp;s.coins+=coins;save()}
+function renderStats(){let done=[s.quiz,s.calcCount>=3,s.canvas,s.advisor].filter(Boolean).length,p=Math.round(done/4*100);document.getElementById('pct').textContent=p+'%';document.getElementById('bar').style.width=p+'%';xp.textContent=s.xp;coins.textContent=s.coins;streak.textContent=s.streak+' 天';dashXp.textContent=s.xp;dashCoins.textContent=s.coins;dashStreak.textContent=s.streak;[['bQuiz',s.quiz],['bCalc',s.calcCount>=3],['bCanvas',s.canvas],['bAdvisor',s.advisor]].forEach(x=>document.getElementById(x[0]).classList.toggle('unlocked',x[1]));bMaster.classList.toggle('unlocked',done===4);let next=!s.quiz?'完成一组 AP 风格题，训练情境判断。':s.calcCount<3?'再使用几种理财计算器，把公式连接到真实决策。':!s.canvas?'建立你的 Business Canvas，并记录至少一条顾客证据。':!s.advisor?'完成 Chen Family 的 Financial Advisor 建议。':'核心任务已完成。回到题库复习，并迭代你的项目证据。';nextStep.textContent=next}
+function show(id,b){document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(id==='canvas')loadCanvas();if(id==='advisor')loadAdvisor();if(id==='review')renderReview();if(id==='exam')renderExam();if(id==='dashboard')renderStats()}
+function jump(id){const b=[...document.querySelectorAll('nav button')].find(x=>x.getAttribute('onclick').includes("'"+id+"'"));show(id,b)}
+function showSection(id){show(id)}
+function toggleLesson(id){document.getElementById(id).classList.toggle('hidden');let u=id; s.mastery[u]=Math.min(100,s.mastery[u]+5); award(2,1)}
+const fc=[['Unit 1','什么是 PESTEL？','Political, Economic, Social, Technological, Environmental, Legal；用于分析企业外部宏观环境。'],['Unit 1','Competitive advantage 与普通“优点”有什么区别？','竞争优势必须能让企业相对竞争者持续创造更高顾客价值或更低成本，而不只是一个好特点。'],['Unit 2','Primary research 与 Secondary research 的区别？','Primary research 为当前问题直接收集新数据；secondary research 使用已经存在的数据。'],['Unit 2','营销组合 4Ps 是什么？','Product、Price、Place、Promotion。'],['Unit 3','会计恒等式是什么？','Assets = Liabilities + Equity。'],['Unit 3','为什么利润不等于现金流？','收入和费用的确认时间可能与现金实际收付时间不同，因此企业盈利时仍可能现金紧张。'],['Unit 4','SWOT 中哪些是内部因素？','Strengths 与 Weaknesses；Opportunities 与 Threats 是外部因素。'],['Unit 4','Porter Five Forces 包含什么？','行业竞争、潜在进入者、替代品、供应商议价能力、买方议价能力。'],['Unit 5','为什么越早投资通常越有利？','资金获得更多复利增长期；时间本身是长期积累的重要变量。'],['Unit 5','分散化能消除所有风险吗？','不能。它主要降低集中于单一资产或单一类别的特有风险，不能消除整个市场风险。']];let fi=0;
+function renderFlash(){flashcard.classList.remove('show');ft.textContent=fc[fi][0];fq.textContent=fc[fi][1];fa.textContent=fc[fi][2]}function flipFlash(){flashcard.classList.toggle('show')}function nextFlash(e){e.stopPropagation();fi=(fi+1)%fc.length;renderFlash()}function prevFlash(e){e.stopPropagation();fi=(fi-1+fc.length)%fc.length;renderFlash()}function masterFlash(e){e.stopPropagation();s.flashMaster++;let u=fc[fi][0].toLowerCase().replace('unit ','u'); if(s.mastery[u]!==undefined)s.mastery[u]=Math.min(100,s.mastery[u]+8); award(5,2);nextFlash(e)}
+function gradeQuiz(){let n=0,t=0;document.querySelectorAll('.quizQ').forEach((q,i)=>{t++;let a=q.querySelector('input:checked'),f=q.querySelector('.fb'),ok=a&&a.value===q.dataset.a;if(ok){n++;f.innerHTML='<span class="goodtxt">✓ 正确</span> — '+q.dataset.exp;}else{f.innerHTML='<span class="badtxt">✗</span> '+q.dataset.exp; let item={source:'quiz',q:q.querySelector('b').innerText,exp:q.dataset.exp,unit:'u'+((i%5)+1)}; if(!s.wrong.some(x=>x.q===item.q)) s.wrong.unshift(item);}}); quizScore.textContent='得分：'+n+'/'+t+' · '+Math.round(n/t*100)+'%'; s.quiz=true; s.mastery.u1=Math.min(100,s.mastery.u1+10);s.mastery.u2=Math.min(100,s.mastery.u2+10);s.mastery.u3=Math.min(100,s.mastery.u3+10);s.mastery.u4=Math.min(100,s.mastery.u4+10);s.mastery.u5=Math.min(100,s.mastery.u5+10); award(n*12+20, n*4+8)}
+const money=n=>'$'+Number(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});function touchCalc(){s.calcCount=Math.min(4,s.calcCount+1);award(8,3)}function compound(){cres.textContent=money(+p.value*Math.pow(1+(+r.value/100),+y.value));touchCalc()}function payment(){let pv=+loan.value,mr=+apr.value/100/12,n=+months.value,pay=mr===0?pv/n:pv*mr/(1-Math.pow(1+mr,-n));pres.textContent=money(pay)+' / 月';loanTotal.textContent='预计总还款 '+money(pay*n)+'；其中利息约 '+money(pay*n-pv)+'。';touchCalc()}function budget(){let i=+income.value,n=+needs.value,w=+wants.value,left=i-n-w,pct=i?left/i*100:0;budgetOut.innerHTML='<b>每月可用于储蓄/债务/目标：</b> '+money(left)+'（'+pct.toFixed(1)+'% 收入）<br><span class="muted small">下一步不是机械套比例，而是根据高息债务、应急储蓄和目标期限排序。</span>';touchCalc()}function goalCalc(){let left=Math.max(0,+goal.value-+saved.value),m=Math.max(1,+goalMonths.value);goalOut.textContent=money(left/m)+' / 月';touchCalc()}
+const canvasIds=['bcProblem','bcCustomer','bcValue','bcProduct','bcChannel','bcFinance','bcEvidence'];function loadCanvas(){let d=JSON.parse(localStorage.getItem('apbpf-canvas')||'{}');canvasIds.forEach(id=>document.getElementById(id).value=d[id]||'')}function saveCanvas(){let d={};canvasIds.forEach(id=>d[id]=document.getElementById(id).value);localStorage.setItem('apbpf-canvas',JSON.stringify(d));let filled=canvasIds.filter(id=>d[id].trim()).length;canvasOut.innerHTML='<span class="goodtxt">已保存。</span> 当前完成 '+filled+'/'+canvasIds.length+' 个模块。';if(!s.canvas&&filled>=5){s.canvas=true;award(80,30)}else award(10,3)}function canvasPrompt(){let d={};canvasIds.forEach(id=>d[id]=document.getElementById(id).value.trim());let msg=!d.bcProblem?'先把“顾客问题”写具体：谁，在什么场景，遇到什么困难？':!d.bcCustomer?'下一步定义最早愿意尝试产品的目标顾客，而不是“所有人”。':!d.bcEvidence?'下一步去获得证据：至少做 3 次访谈、一次小实验或一次原型测试。':'检查你的证据是否真的支持价值主张；如果不支持，记录你准备改变什么。';canvasOut.innerHTML='<b>下一步：</b> '+msg}
+function advisorAnalyze(){let v=advPriority.value,a=+advAmount.value;let monthly=7200-4150-1250;let txt='';if(v==='debt')txt='<span class="goodtxt"><b>方向合理。</b></span> 19.9% APR 属于高成本债务。家庭当前可支配结余约 '+money(monthly)+' / 月；在保留基本应急储蓄的同时优先减少高息债务，可以降低确定性的利息成本。';else if(v==='house')txt='<span class="badtxt"><b>需要进一步权衡。</b></span> 家庭存在 19.9% APR 信用卡债务。把全部结余先投入较远期首付，会继续承担很高的债务成本。';else if(v==='invest')txt='<span class="badtxt"><b>风险与目标不匹配。</b></span> 高息债务和近中期目标尚未处理，把全部结余放入高波动资产会增加短期资金不足风险。';else txt='先选择一个优先事项。';if(v)txt+='<br><span class="small muted">你计划每月投入 '+money(a)+'。还需要在 memo 中说明应急储蓄、教育、住房和退休之间如何分配。</span>';advOut.innerHTML=txt}
+function loadAdvisor(){advMemo.value=localStorage.getItem('apbpf-advisor')||''}function saveAdvisor(){localStorage.setItem('apbpf-advisor',advMemo.value);if(advMemo.value.trim().length>=120&&!s.advisor){s.advisor=true;award(80,30)}else award(8,2)}
+
+const examData=[
+['Unit 1','一家餐厅发现外卖平台提高了订单量，但平台抽成使利润率下降。最值得进一步分析的是：',['A. 只看订单数量','B. 只看品牌设计','C. 渠道带来的增量价值与边际成本','D. 员工年龄'], 'c','需要比较新增收入与渠道、履约等增量成本。'],
+['Unit 2','某品牌把广告预算全部转向 TikTok，却没有重新确认目标顾客是否使用该平台。这首先说明：',['A. 渠道选择应与目标市场证据匹配','B. 价格一定应该上涨','C. 产品生命周期不存在','D. secondary research 永远无效'], 'a','推广渠道必须围绕目标顾客，而不是单纯追随热门平台。'],
+['Unit 3','信用卡余额 $5,000，APR 24%。如果只支付很低的最低还款额，长期成本通常会：',['A. 降低','B. 增加','C. 变成零','D. 与期限无关'], 'b','更高利息和更长还款期限会推高总融资成本。'],
+['Unit 4','公司利润增长但员工流失率同步上升。最好的 KPI 分析方式是：',['A. 只看利润','B. 删除员工指标','C. 同时观察财务和人员指标及其趋势','D. 只看竞争对手'], 'c','战略管理需要平衡不同利益相关者与领先/滞后指标。'],
+['Unit 5','一个 2 年后需要使用的教育基金，通常需要优先考虑：',['A. 无限追求高波动收益','B. 与时间期限匹配的风险与流动性','C. 完全忽略通胀','D. 只买单一股票'], 'b','目标期限较短时，资金安全性、流动性和与目标匹配的风险很重要。']];
+let examStarted=false,examEnd=0,examInterval=null;
+function renderExam(){let box=document.getElementById('examQs'); if(!box||box.dataset.ready)return; box.dataset.ready='1'; box.innerHTML=examData.map((x,i)=>`<div class="examQ" data-a="${x[3]}" data-exp="${x[4]}"><b>${i+1}. [${x[0]}] ${x[1]}</b>${x[2].map((o,j)=>`<label style="display:block;padding:7px"><input type="radio" name="e${i}" value="${'abcd'[j]}"> ${o}</label>`).join('')}<div class="fb"></div></div>`).join('');}
+function startExam(){renderExam();examStarted=true;examEnd=Date.now()+600000;clearInterval(examInterval);examInterval=setInterval(()=>{let left=Math.max(0,examEnd-Date.now());document.getElementById('examTimer').textContent=Math.floor(left/60000)+':'+String(Math.floor(left/1000)%60).padStart(2,'0');if(left<=0){clearInterval(examInterval);submitExam();}},250);document.getElementById('examScore').textContent='进行中';}
+function submitExam(){if(!examStarted)return;clearInterval(examInterval);let n=0;document.querySelectorAll('.examQ').forEach((q,i)=>{let a=q.querySelector('input:checked'),f=q.querySelector('.fb');if(a&&a.value===q.dataset.a){n++;f.innerHTML='<span class="goodtxt">✓ 正确</span> — '+q.dataset.exp;}else{f.innerHTML='<span class="badtxt">✗</span> '+q.dataset.exp; s.wrong.unshift({source:'exam',q:q.querySelector('b').innerText,exp:q.dataset.exp,unit:'u'+(i+1)});}});let pct=Math.round(n/examData.length*100);document.getElementById('examScore').textContent=n+'/'+examData.length+' · '+pct+'%';s.xp+=n*15;s.coins+=n*5;s.mastery.u1=Math.min(100,s.mastery.u1+8);s.mastery.u2=Math.min(100,s.mastery.u2+8);s.mastery.u3=Math.min(100,s.mastery.u3+8);s.mastery.u4=Math.min(100,s.mastery.u4+8);s.mastery.u5=Math.min(100,s.mastery.u5+8);examStarted=false;save();}
+function renderMastery(){let g=document.getElementById('masteryGrid');if(!g)return;let names={u1:'Businesses & Ideas',u2:'Marketing',u3:'Saving, Borrowing & Finance',u4:'Management & Strategy',u5:'Goals, Budgeting & Investing'};g.innerHTML=Object.keys(names).map(u=>`<div class="card masterCard"><b>${names[u]}</b><div style="font-size:26px;font-weight:850;margin:10px 0">${s.mastery[u]}%</div><div class="masterBar"><div style="width:${s.mastery[u]}%"></div></div></div>`).join('');}
+function renderReview(){let g=document.getElementById('reviewList');if(!g)return;if(!s.wrong.length){g.innerHTML='<div class="card"><b>🎉 暂时没有错题。</b><p class="muted">继续做题，系统会自动把做错的题放到这里。</p></div>';return;}g.innerHTML=s.wrong.slice(0,12).map((x,i)=>`<div class="card reviewItem"><span class="pill">${x.unit.toUpperCase()}</span><h3>${x.q}</h3><p>${x.exp}</p><button class="btn secondary" onclick="removeWrong(${i})">标记已掌握</button></div>`).join('');}
+function removeWrong(i){s.wrong.splice(i,1);award(6,2)}
+
+updateStreak();save();renderFlash();renderExam();
+
+// ===== V5 unified learning layer =====
+const V5KEY='apbpf-unified-v5';
+let V5=JSON.parse(localStorage.getItem(V5KEY)||'{}');
+V5=Object.assign({xp:0,coins:0,streak:1,lastDay:'',questions:0,correct:0,wrong:[],units:{u1:{seen:0,correct:0},u2:{seen:0,correct:0},u3:{seen:0,correct:0},u4:{seen:0,correct:0},u5:{seen:0,correct:0}},quizSets:0,flashDone:0,calc:0,canvas:false,advisor:false,exam:0},V5);
+function v5save(){localStorage.setItem(V5KEY,JSON.stringify(V5));v5render();}
+function v5streak(){let d=new Date().toISOString().slice(0,10);if(V5.lastDay===d)return;if(!V5.lastDay){V5.lastDay=d;return}let a=new Date(V5.lastDay+'T00:00:00'),b=new Date(d+'T00:00:00');let diff=Math.round((b-a)/86400000);V5.streak=diff===1?V5.streak+1:1;V5.lastDay=d;}
+function v5award(x,c){v5streak();V5.xp+=x;V5.coins+=c;localStorage.setItem(V5KEY,JSON.stringify(V5));v5render();v5toast('+'+x+' XP  ·  +'+c+' coins');}
+function v5toast(t){let el=document.getElementById('v5toast');if(!el){el=document.createElement('div');el.id='v5toast';el.className='v5-toast';document.body.appendChild(el)}el.textContent=t;el.classList.add('show');clearTimeout(window._v5t);window._v5t=setTimeout(()=>el.classList.remove('show'),1600);}
+function v5unitPct(u){let z=V5.units[u]||{seen:0,correct:0};return z.seen?Math.round(z.correct/z.seen*100):0;}
+function v5render(){
+ v5streak();
+ ['v5xp','v5coins','v5streak'].forEach((id,i)=>document.getElementById(id)&&(document.getElementById(id).textContent=[V5.xp,V5.coins,V5.streak][i]));
+ let vals=Object.keys(V5.units).map(v5unitPct);let mastery=Math.round(vals.reduce((a,b)=>a+b,0)/5);
+ if(document.getElementById('v5mastery'))document.getElementById('v5mastery').textContent=mastery+'%';
+ if(document.getElementById('v5questions'))document.getElementById('v5questions').textContent=V5.questions;
+ if(document.getElementById('v5wrong'))document.getElementById('v5wrong').textContent=V5.wrong.length;
+ let tasks=[Math.min(1,V5.quizSets),Math.min(1,V5.flashDone),Math.min(1,V5.canvas),Math.min(1,V5.advisor),Math.min(1,V5.calc>=2),Math.min(1,V5.exam>=1)];let done=tasks.reduce((a,b)=>a+b,0);if(document.getElementById('v5weekbar'))document.getElementById('v5weekbar').style.width=(done/6*100)+'%';if(document.getElementById('v5weektext'))document.getElementById('v5weektext').textContent=done+'/6 任务';
+ v5renderUnits();v5renderDiag();v5renderTasks();v5recommend();
+}
+function v5renderUnits(){let box=document.getElementById('v5units');if(!box)return;box.innerHTML='';[['u1','竞争'],['u2','营销'],['u3','金融与会计'],['u4','管理与战略'],['u5','目标与投资']].forEach(([u,n])=>{let p=v5unitPct(u);box.innerHTML+=`<div class="v5-unitrow"><span class="small"><b>${u.toUpperCase()}</b></span><div class="v5-progress"><div style="width:${p}%"></div></div><span class="small">${p}%</span></div>`});}
+function v5renderDiag(){let box=document.getElementById('v5diag');if(!box)return;let arr=[['u1','Businesses, Competition','做竞争优势 + PESTEL 情境题'],['u2','Marketing','练市场调研 + 定价题'],['u3','Finance & Accounting','复习财务报表 + 债务成本'],['u4','Management & Strategy','练 SWOT + KPI'],['u5','Goals & Investing','练期限 + 风险匹配']];box.innerHTML=arr.map(x=>{let p=v5unitPct(x[0]);return `<tr><td><b>${x[0].toUpperCase()}</b></td><td>${x[1]}</td><td><b>${p}%</b></td><td>${p<60?x[2]:p<80?'做 1 组混合题并复习错题':'保持并挑战模拟考试'}</td></tr>`}).join('');}
+function v5renderTasks(){let b=document.getElementById('v5tasks');if(!b)return;let arr=[['题组',V5.quizSets>0],['闪卡',V5.flashDone>0],['计算',V5.calc>=2],['Canvas',V5.canvas],['Advisor',V5.advisor],['模拟',V5.exam>=1]];b.innerHTML=arr.map(x=>`<div class="v5-step"><div class="v5-check ${x[1]?'done':''}">${x[1]?'✓':'•'}</div><div class="v5-mini">${x[0]}</div></div>`).join('');}
+function v5recommend(){let target=Object.entries(V5.units).sort((a,b)=>v5unitPct(a[0])-v5unitPct(b[0]))[0][0];let map={u1:['Unit 1：竞争优势','先做竞争与 PESTEL 情境题'],u2:['Unit 2：营销','先做市场调研与定价题'],u3:['Unit 3：金融与会计','先复习财务报表并做债务题'],u4:['Unit 4：管理与战略','先练 SWOT 和 KPI'],u5:['Unit 5：目标与投资','先做期限与风险匹配题']};let x=map[target];if(document.getElementById('v5recommend'))document.getElementById('v5recommend').textContent=x[0];if(document.getElementById('v5recommendText'))document.getElementById('v5recommendText').textContent=x[1];}
+function v5GoNext(){let target=Object.entries(V5.units).sort((a,b)=>v5unitPct(a[0])-v5unitPct(b[0]))[0][0];let sec=target==='u5'?'calc':'quiz';showSection(sec);}
+// Wrap the existing functions without deleting prior functionality.
+if(typeof gradeQuiz==='function'){let old=gradeQuiz;window.gradeQuiz=function(){old();V5.quizSets++;let qs=document.querySelectorAll('.quizQ');qs.forEach((q,i)=>{let unit=['u1','u3','u4'][i]||'u1';let z=V5.units[unit];z.seen++;let p=q.querySelector('input:checked');if(p&&p.value===q.dataset.answer){z.correct++;V5.correct++;}V5.questions++;});v5award(18,7);};}
+if(typeof compound==='function'){let oldc=compound;window.compound=function(){oldc();V5.calc++;v5award(5,2)}}
+if(typeof payment==='function'){let oldp=payment;window.payment=function(){oldp();V5.calc++;v5award(5,2)}}
+if(typeof caseFeedback==='function'){let oldcase=caseFeedback;window.caseFeedback=function(){oldcase();v5award(6,2)}}
+window.v5render=v5render;v5render();
+
+
+// ---------- V7 adaptive learning ----------
+const V7KEY='apbpf-v7';
+const V7DEFAULT={round:0,roundCorrect:0,streak:0,difficulty:2,current:null,history:[],errors:{concept:0,careless:0,calculation:0,reasoning:0},daily:{done:0,date:''}};
+let V7=Object.assign({},V7DEFAULT,JSON.parse(localStorage.getItem(V7KEY)||'{}'),{errors:Object.assign({},V7DEFAULT.errors,(JSON.parse(localStorage.getItem(V7KEY)||'{}').errors||{}))});
+const V7Q=[
+ {u:'u1',d:1,q:'一家小企业刚进入市场，最需要先明确哪件事？',o:['A. 所有潜在顾客','B. 目标顾客和价值主张','C. 最大办公室面积','D. 最贵的设备'],a:'b',e:'reasoning',x:'商业模式首先要围绕具体顾客问题与价值创造。'},
+ {u:'u1',d:2,q:'供应商单一且无法快速替换，会提高企业面临的哪类风险？',o:['A. 供应中断风险','B. 品牌认知度','C. 资产收益率自动上升','D. 广告转化率'],a:'a',e:'concept',x:'供应集中会提高对单一供应商的依赖。'},
+ {u:'u2',d:1,q:'问卷只发给已经购买过产品的人，最大的研究问题是：',o:['A. 样本偏差','B. 二手数据太多','C. 定价错误','D. 渠道过宽'],a:'a',e:'reasoning',x:'现有客户不是整个潜在市场的随机代表。'},
+ {u:'u2',d:3,q:'产品销量下降，但总市场也在快速收缩。分析时首先应该比较：',o:['A. 单个销售员性格','B. 企业表现与市场整体趋势','C. Logo 大小','D. 办公室租金'],a:'b',e:'reasoning',x:'需要区分企业自身问题与外部市场变化。'},
+ {u:'u3',d:1,q:'Assets = Liabilities + ?',o:['A. Revenue','B. Equity','C. Expense','D. Cash Flow'],a:'b',e:'concept',x:'会计恒等式为 Assets = Liabilities + Equity。'},
+ {u:'u3',d:3,q:'贷款 APR 为 12%，期限更长通常会怎样？',o:['A. 在其他条件相同下总利息通常更高','B. 总利息一定为零','C. 本金自动降低','D. 风险自动消失'],a:'a',e:'calculation',x:'更长的还款期意味着利息计提时间通常更长。'},
+ {u:'u4',d:2,q:'SWOT 中“团队缺乏数据分析能力”属于：',o:['A. Strength','B. Weakness','C. Opportunity','D. Threat'],a:'b',e:'concept',x:'这是企业内部的限制，因此属于 Weakness。'},
+ {u:'u4',d:4,q:'一个 KPI 从 5% 提升到 7%，最重要的下一步是：',o:['A. 直接宣布战略成功','B. 判断该变化是否与目标、样本和时间窗口相关','C. 删除其他指标','D. 改公司名称'],a:'b',e:'reasoning',x:'单个 KPI 的变化需要放到目标、基准与时间范围中解释。'},
+ {u:'u5',d:2,q:'家庭 3 个月后需要使用一笔钱，通常首先要重视：',o:['A. 流动性与期限匹配','B. 尽可能高的波动','C. 单一资产集中','D. 忽略本金风险'],a:'a',e:'concept',x:'短期目标需要资金在需要时可用，并管理本金波动。'},
+ {u:'u5',d:3,q:'月收入 $4,000，必要支出 $2,400，灵活支出 $900，每月可分配结余为：',o:['A. $700','B. $900','C. $1,600','D. $2,500'],a:'a',e:'calculation',x:'4,000 - 2,400 - 900 = 700。'}
+];
+function v7Save(){localStorage.setItem(V7KEY,JSON.stringify(V7));v7RenderSide();}
+function v7Weak(){let arr=['u1','u2','u3','u4','u5'];return arr.sort((a,b)=>(typeof v6UnitScore==='function'?v6UnitScore(a):0)-(typeof v6UnitScore==='function'?v6UnitScore(b):0))[0]||'u1';}
+function v7Choose(){let weak=v7Weak(), options=V7Q.filter(q=>q.u===weak&&(q.d===V7.difficulty));if(!options.length)options=V7Q.filter(q=>q.u===weak);if(!options.length)options=V7Q;let unused=options.filter(q=>!V7.history.includes(q.q));V7.current=(unused[0]||options[0]);}
+function v7Load(){if(!V7.current)v7Choose();let q=V7.current;$('v7UnitTag').textContent=q.u.toUpperCase();$('v7DiffTag').textContent=['','Easy','Medium','Hard','Challenge'][q.d];$('v7DiffTag').className='v7-tag v7-diff'+q.d;$('v7N').textContent=V7.round+1;$('v7Q').textContent=q.q;$('v7Opts').innerHTML=q.o.map((o,i)=>`<label class="v7-choice" style="display:block;padding:8px"><input type="radio" name="v7ans" value="${'abcd'[i]}"> ${o}</label>`).join('');$('v7Feedback').textContent='先独立作答，再看解析。';$('v7Strategy').textContent=`建议攻克 ${q.u.toUpperCase()}；当前难度 ${q.d>=3?'偏难':'中等/基础'}。`}
+function v7Submit(){let q=V7.current,p=document.querySelector('input[name="v7ans"]:checked');if(!p)return $('v7Feedback').textContent='请选择一个答案。';let ok=p.value===q.a;V7.round++;V7.roundCorrect+=ok?1:0;if(ok){V7.streak++;if(V7.streak>=2)V7.difficulty=Math.min(4,V7.difficulty+1);$('v7Feedback').innerHTML='<span class="oktxt">✓ 正确</span> '+q.x;S.mastery[q.u]=Math.min(100,(S.mastery[q.u]||0)+8);v7Award(10,3)}else{V7.streak=0;V7.difficulty=Math.max(1,V7.difficulty-1);V7.errors[q.e]++;if(!S.wrong.some(x=>x.q===q.q))S.wrong.unshift({q:q.q,exp:q.x,unit:q.u});$('v7Feedback').innerHTML='<span class="badtxt">✗ 错误</span> '+q.x+`<div class="v7-error"><span class="v7-chip">错因：${({concept:'概念混淆',careless:'审题粗心',calculation:'计算失误',reasoning:'推理链不足'})[q.e]}</span></div>`;v7Award(3,1)}V7.history.push(q.q);V7.daily.done++;v7Save();renderMastery();renderReview();}
+function v7Next(){v7Choose();v7Load();}
+function v7Award(x,c){if(typeof award==='function'){try{award(x,c);return}catch(e){}}S.xp=(S.xp||0)+x;S.coins=(S.coins||0)+c;if(typeof save==='function')save();}
+function v7RenderSide(){if($('v7Round'))$('v7Round').textContent=V7.round;if($('v7RoundAcc'))$('v7RoundAcc').textContent=(V7.round?Math.round(V7.roundCorrect/V7.round*100):0)+'%';if($('v7RoundStreak'))$('v7RoundStreak').textContent=V7.streak;}
+function v7Errors(){let m={concept:'概念混淆',careless:'审题粗心',calculation:'计算失误',reasoning:'推理链不足'},box=$('v7Errors');if(!box)return;box.innerHTML=Object.entries(V7.errors).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="v7-sideitem"><div class="v7-row"><b>${m[k]}</b><span>${v} 次</span></div><div class="master"><div style="width:${Math.min(100,v*18)}%"></div></div></div>`).join('');let top=Object.entries(V7.errors).sort((a,b)=>b[1]-a[1])[0];$('v7Prescription').innerHTML=top&&top[1]?({concept:'回到 Unit 概念闪卡，给每个术语写一句“定义 + 例子”。',calculation:'今天再做 3 个计算题，每题写出公式、代入和单位。',reasoning:'做情境题时先圈“证据”，再写“因为…所以…”。',careless:'练习慢 10 秒：先读问题最后一句，再排除无关选项。'})[top[0]]:'目前没有明显的重复错因，继续保持。';
+let plan=[['复习最弱 Unit',true],['做 3 道自适应题',V7.round>=3],['复习 1 个错因标签',Object.values(V7.errors).some(x=>x>0)],['完成一次理财计算',typeof S.calcCount==='number'&&S.calcCount>0]];$('v7Plan').innerHTML=plan.map(x=>`<div class="v7-row"><span>${x[1]?'✅':'⬜'} ${x[0]}</span><span class="v7-mini">${x[1]?'完成':'待完成'}</span></div>`).join('');}
+function v7Init(){v7Load();v7RenderSide();v7Errors();}
+v7Init();
+
+</script>
+<script id="v6js">
+const V6KEY='apbpf-v6-master';
+let V6=JSON.parse(localStorage.getItem(V6KEY)||'{}');
+V6=Object.assign({days:0,lastDay:'',sprint:0,activeUnit:'u1',mastery:{u1:0,u2:0,u3:0,u4:0,u5:0}},V6);
+const V6DATA={
+ u1:{name:'Business & Competition',goal:'解释企业如何创造价值并建立竞争优势。',concepts:[['Competitive Advantage','回答：客户为什么选你，以及为什么竞争者不容易复制。'],['PESTEL','Political、Economic、Social、Technological、Environmental、Legal。'],['Ethics & Stakeholders','商业决策同时影响客户、员工、所有者与社区。']]},
+ u2:{name:'Marketing',goal:'从顾客证据推导市场策略。',concepts:[['Primary Research','为当前问题直接收集的新数据。'],['Consumer Behavior','价格、偏好、社会影响、品牌与情境都会改变购买。'],['Marketing Mix','Product、Price、Place、Promotion 应围绕目标顾客一致。']]},
+ u3:{name:'Saving, Borrowing & Finance',goal:'把借贷成本、报表与现金流连接起来。',concepts:[['APR & Debt','比较利率、费用、期限与总还款额。'],['Financial Statements','Income Statement 看期间利润；Balance Sheet 看时点财务位置；Cash Flow 看现金。'],['Accounting Equation','Assets = Liabilities + Equity。']]},
+ u4:{name:'Management & Strategy',goal:'用指标和战略框架解释经营决策。',concepts:[['KPI','把战略目标变成可追踪指标。'],['SWOT','Strengths/Weaknesses 是内部；Opportunities/Threats 是外部。'],['Five Forces','竞争者、进入者、替代品、供应商、买方。']]},
+ u5:{name:'Goals, Budgeting & Investing',goal:'让预算、风险、期限和投资目标保持一致。',concepts:[['Budget','收入分配反映机会成本。'],['Risk Management','保险转移特定风险，需比较保费、免赔额与保障。'],['Investing','目标、期限、风险承受力和分散化共同决定方案。']]}
+};
+function v6Today(){let d=new Date().toISOString().slice(0,10);if(V6.lastDay!==d){V6.days+=1;V6.lastDay=d;}localStorage.setItem(V6KEY,JSON.stringify(V6));}
+function v6UnitScore(u){return Math.max(0,Math.min(100,+(V6.mastery[u]||0)));}
+function v6render(){v6Today();let vals=Object.keys(V6DATA).map(v6UnitScore),overall=Math.round(vals.reduce((a,b)=>a+b,0)/5);document.getElementById('v6Mastery').textContent=overall+'%';document.getElementById('v6MasteryBar').style.width=overall+'%';let q=(typeof V5!=='undefined'&&V5.questions)||0,correct=(typeof V5!=='undefined'&&V5.correct)||0,wrong=(typeof V5!=='undefined'&&V5.wrong?V5.wrong.length:0);document.getElementById('v6Q').textContent=q;document.getElementById('v6Accuracy').textContent=(q?Math.round(correct/q*100):0)+'%';document.getElementById('v6Wrong').textContent=wrong;document.getElementById('v6Days').textContent=V6.days;v6tabs();v6lesson();v6path();v6weak();v6check();}
+function v6tabs(){let b=document.getElementById('v6Tabs');b.innerHTML=Object.entries(V6DATA).map(([u,d])=>`<button class="v6tab ${V6.activeUnit===u?'active':''}" onclick="v6Select('${u}')">${u.toUpperCase()} · ${v6UnitScore(u)}%</button>`).join('')}
+function v6Select(u){V6.activeUnit=u;localStorage.setItem(V6KEY,JSON.stringify(V6));v6render();}
+function v6lesson(){let u=V6.activeUnit,d=V6DATA[u],box=document.getElementById('v6LessonArea');box.innerHTML=`<div class="v6highlight"><b>学习目标：</b> ${d.goal}</div>`+d.concepts.map((c,i)=>`<div class="v6concept"><h4>${i+1}. ${c[0]}</h4><div>${c[1]}</div><div class="v6source">学习提示：先说概念，再举一个企业或个人理财场景。</div></div>`).join('')+`<div class="v6-action"><button class="btn" onclick="v6Master('${u}',8)">我掌握了这个单元</button><button class="btn secondary" onclick="showSection('quiz')">去做题</button><button class="btn secondary" onclick="showSection('flash')">去闪卡</button></div>`;}
+function v6Master(u,n){V6.mastery[u]=Math.min(100,v6UnitScore(u)+n);localStorage.setItem(V6KEY,JSON.stringify(V6));if(typeof v5toast==='function')v5toast('Unit 掌握度 +'+n);v6render();}
+function v6path(){let p=document.getElementById('v6Path');p.innerHTML=Object.entries(V6DATA).map(([u,d],i)=>{let s=v6UnitScore(u),lock=i>0&&v6UnitScore('u'+i)<40;return `<div class="v6-node ${lock?'locked':''}"><div class="v6num">${u.toUpperCase()}</div><b>${d.name}</b><div class="v6-mini" style="margin-top:8px">掌握度 ${s}%</div><div class="v6meter" style="margin-top:7px"><div style="width:${s}%"></div></div><div class="v6-mini" style="margin-top:7px">${lock?'建议先完成前一单元':'可学习'}</div></div>`}).join('')}
+function v6weak(){let weakest=Object.entries(V6DATA).sort((a,b)=>v6UnitScore(a[0])-v6UnitScore(b[0]))[0];let d=weakest[1],s=v6UnitScore(weakest[0]);document.getElementById('v6Weak').innerHTML=`<div class="v6highlight"><b>${weakest[0].toUpperCase()} · ${d.name}</b><br>当前 ${s}%<br><span class="v6-mini">${d.concepts[0][0]} 是建议的第一个复习切口。</span></div>`;}
+function v6check(){let q=(typeof V5!=='undefined'&&V5.questions)||0,c=(typeof V5!=='undefined'&&V5.calc)||0,canvas=(typeof V5!=='undefined'&&V5.canvas)||false,advisor=(typeof V5!=='undefined'&&V5.advisor)||false;let arr=[['做过至少 5 道题',q>=5],['做过至少 2 次计算器',c>=2],['完成 Business Canvas',canvas],['完成 Financial Advisor Memo',advisor]];document.getElementById('v6Checklist').innerHTML=arr.map(x=>`<div class="v6-checkrow"><span>${x[0]}</span><b>${x[1]?'✓':'○'}</b></div>`).join('');}
+function v6Sprint(){document.getElementById('v6Sprint').innerHTML=`<div class="v6-checkrow"><span>5 min · 复习最弱 Unit</span><b>1</b></div><div class="v6-checkrow"><span>10 min · 做一组情境题</span><b>2</b></div><div class="v6-checkrow"><span>5 min · 写一句“为什么”解析</span><b>3</b></div>`;}
+function v6StartSprint(){V6.sprint=Date.now();localStorage.setItem(V6KEY,JSON.stringify(V6));if(typeof v5toast==='function')v5toast('Sprint 已开始 · 20 分钟专注');}
+function v6CompleteSprint(){if(!V6.sprint){v6StartSprint();return}if(V6.sprint){let u=Object.entries(V6DATA).sort((a,b)=>v6UnitScore(a[0])-v6UnitScore(b[0]))[0][0];v6Master(u,6);V6.sprint=0;v6render();if(typeof v5toast==='function')v5toast('Sprint 完成 · 获得学习奖励');}}
+v6Sprint();v6render();
+</script>
+
+<script>
+// V8 extensions: FRQ rubric + progress report
+function v8State(){try{return typeof S!=="undefined"?S:JSON.parse(localStorage.getItem("apbpf-v4-final")||"{}")}catch(e){return {}}}
+function scoreFRQ(){
+ const a=document.getElementById('frqAnswer').value.trim();
+ let pts=0, notes=[];
+ if(a.length>=80){pts++;notes.push('✓ 有明确且足够展开的回答。')}else notes.push('△ Claim 需要更完整地直接回答问题。');
+ if(/cash|现金|应收|receiv|inventory|存货|payable|应付|timing|时间/i.test(a)){pts++;notes.push('✓ 使用了与现金流相关的证据/概念。')}else notes.push('△ 加入应收账款、存货、应付账款或收付款时间等具体概念。');
+ if(/because|因此|所以|导致|意味着|从而|however|但是/i.test(a)){pts++;notes.push('✓ 有因果推理连接概念与结论。')}else notes.push('△ 不要停在定义；写出“为什么这会导致现金为负”。');
+ if(/action|行动|收款|inventory|存货|付款|credit|信用|forecast|预测|预算/i.test(a)){pts++;notes.push('✓ 提出了管理行动。')}else notes.push('△ 最后提出一项可执行行动，例如改善收款、库存或现金预测。');
+ document.getElementById('frqOut').innerHTML='<div class="result">'+pts+'/4</div><p>'+notes.join('<br>')+'</p><p class="muted small">这是学习用启发式 Rubric，不是 College Board 官方评分。</p>';
+ try{localStorage.setItem('apbpf-v8-frq',a);if(typeof award==='function')award(10+pts*3,4+pts)}catch(e){}
+}
+function buildReport(){
+ const s=v8State(), m=s.master||{};
+ const vals=['u1','u2','u3','u4','u5'].map(k=>Number(m[k]||0));
+ const avg=Math.round(vals.reduce((a,b)=>a+b,0)/5);
+ document.getElementById('reportStats').innerHTML='<div class="grid"><div class="card"><div class="result">'+(s.xp||0)+'</div><div class="muted">XP</div></div><div class="card"><div class="result">'+avg+'%</div><div class="muted">平均掌握度</div></div><div class="card"><div class="result">'+((s.wrong||[]).length)+'</div><div class="muted">待复习错题</div></div></div>';
+ const names=['Businesses & Ideas','Marketing','Saving & Finance','Management & Strategy','Goals & Investing'];
+ document.getElementById('reportUnits').innerHTML=vals.map((v,i)=>'<div style="margin:10px 0"><b>Unit '+(i+1)+' · '+names[i]+'</b><div class="master"><div style="width:'+v+'%"></div></div><span class="small muted">'+v+'%</span></div>').join('');
+ let min=Math.min(...vals), idx=vals.indexOf(min);
+ document.getElementById('reportNext').innerHTML='<p>当前建议优先复习 <b>Unit '+(idx+1)+' · '+names[idx]+'</b>（'+min+'%）。先完成概念复习，再做情境题，并用一句话解释“为什么”。</p>';
+}
+window.addEventListener('load',()=>{let a=localStorage.getItem('apbpf-v8-frq');if(a&&document.getElementById('frqAnswer'))document.getElementById('frqAnswer').value=a; if(document.getElementById('reportStats'))buildReport();});
+</script>
+
+<script id="v9js">
+function v9State(){try{return JSON.parse(localStorage.getItem('apbpf-v6-master')||'{}')}catch(e){return {}}}
+function v9Base(){
+ try{
+  const base=(typeof s!=='undefined'&&s)?s:JSON.parse(localStorage.getItem('apbpf-v3')||'{}');
+  return Object.assign({},base,{master:base.master||base.mastery||{},canvasDone:!!(base.canvasDone||base.canvas),advisorDone:!!(base.advisorDone||base.advisor),calcCount:base.calcCount||base.calc||0});
+ }catch(e){return {master:{},wrong:[]}}
+}
+function v9RenderTeacher(){const b=v9Base(),m=b.master||{},u=['u1','u2','u3','u4','u5'],names=['Businesses & Ideas','Marketing','Saving & Finance','Management & Strategy','Goals & Investing'],vals=u.map(x=>+m[x]||0),avg=Math.round(vals.reduce((a,c)=>a+c,0)/5);if(document.getElementById('tXp'))document.getElementById('tXp').textContent=b.xp||0;if(document.getElementById('tMastery'))document.getElementById('tMastery').textContent=avg+'%';if(document.getElementById('tWrong'))document.getElementById('tWrong').textContent=(b.wrong||[]).length;document.getElementById('teacherTable').innerHTML=u.map((x,i)=>{let action=vals[i]<40?'补概念 + 闪卡':vals[i]<70?'做情境题 + 解释':'提高难度 + 模拟考试';return `<tr><td>Unit ${i+1}<br><span class="muted">${names[i]}</span></td><td>${vals[i]}%</td><td>${action}</td></tr>`}).join('');document.getElementById('teacherTips').innerHTML=[vals[0]<50?'Unit 1 仍需要商业模式与竞争优势概念巩固。':'Unit 1 已具备基础掌握度。',vals[2]<50?'Unit 3 建议增加财务报表与借贷成本练习。':'Unit 3 已达到基础训练阶段。', (b.wrong||[]).length>=3?'错题较多：安排一次集中复习。':'错题数量可控：继续间隔复习。'].map(x=>`<div class="v9-check">${x}</div>`).join('')}
+function v9RenderStandards(){const b=v9Base(),items=[['定义概念','能够用自己的话解释关键术语', (b.xp||0)>20],['情境应用','能够根据商业情境选择框架', (b.master?.u1||0)>=40&&(b.master?.u2||0)>=40],['定量推理','能够解释复利、贷款或预算', (b.calcCount||0)>=2],['商业项目','能够写出可验证的 Business Canvas', !!b.canvasDone],['个人理财项目','能够提出并解释 Advisor 方案', !!b.advisorDone],['复习能力','能够查看并处理错题', (b.wrong||[]).length<4]];document.getElementById('standardsBox').innerHTML=items.map(x=>`<div class="v9-check"><span><b>${x[0]}</b><br><span class="muted small">${x[1]}</span></span><span>${x[2]?'✅ 已达到':'○ 继续练习'}</span></div>`).join('')}
+function exportData(){const payload={createdAt:new Date().toISOString(),base:v9Base(),v6:v9State(),canvas:localStorage.getItem('apbpf-canvas')||'',advisor:localStorage.getItem('apbpf-advisor')||'',frq:localStorage.getItem('apbpf-v8-frq')||''};const text=JSON.stringify(payload,null,2);document.getElementById('exportPreview').textContent=text.slice(0,1600)+'\n...';const blob=new Blob([text],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='apbpf-learning-profile.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(){const f=document.getElementById('importFile').files[0];if(!f){document.getElementById('importOut').textContent='请选择 JSON 文件。';return}const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(d.base)localStorage.setItem('apbpf-v3',JSON.stringify(d.base));if(d.v6)localStorage.setItem('apbpf-v6-master',JSON.stringify(d.v6));if(d.canvas)localStorage.setItem('apbpf-canvas',d.canvas);if(d.advisor)localStorage.setItem('apbpf-advisor',d.advisor);if(d.frq)localStorage.setItem('apbpf-v8-frq',d.frq);document.getElementById('importOut').textContent='导入成功。刷新页面后查看。'}catch(e){document.getElementById('importOut').textContent='文件格式不正确。'}};r.readAsText(f)}
+function renderReport(){
+ const b=v9Base(),m=b.master||{},u=['u1','u2','u3','u4','u5'],names=['Businesses & Ideas','Marketing','Saving & Finance','Management & Strategy','Goals, Budgeting & Investing'];
+ const vals=u.map(x=>+m[x]||0),avg=Math.round(vals.reduce((a,c)=>a+c,0)/5),min=Math.min(...vals),idx=vals.indexOf(min);
+ const stats=document.getElementById('reportStats'), units=document.getElementById('reportUnits'), next=document.getElementById('reportNext');
+ if(stats) stats.innerHTML='<div class="grid"><div class="card"><div class="result">'+(b.xp||0)+'</div><div class="muted">XP</div></div><div class="card"><div class="result">'+avg+'%</div><div class="muted">平均掌握度</div></div><div class="card"><div class="result">'+((b.wrong||[]).length)+'</div><div class="muted">待复习错题</div></div></div>';
+ if(units) units.innerHTML=vals.map((v,i)=>'<div style="margin:12px 0"><b>Unit '+(i+1)+' · '+names[i]+'</b><div class="masterBar"><div style="width:'+v+'%"></div></div><span class="small muted">'+v+'%</span></div>').join('');
+ if(next) next.innerHTML='<div class="v9-note"><b>下一步建议：</b> 优先复习 Unit '+(idx+1)+' · '+names[idx]+'（'+min+'%）。先复习核心概念，再完成 3 道情境题，并写一句“为什么”。</div>';
+}
+function v9Init(){v9RenderTeacher();v9RenderStandards();renderReport();renderStats();renderMastery();renderReview()}
+window.addEventListener('load',v9Init)
+</script>
+
+<script id="v10js">
+// V10: learner profile, planner, focus mode, favorites.
+const V10KEY='apbpf-v10';
+let V10=Object.assign({profile:{name:'',examMonth:'',hours:5,confidence:'刚开始',goal:''},plan:{},favorites:[],focus:{end:0,running:false,seconds:1500}},JSON.parse(localStorage.getItem(V10KEY)||'{}'));
+function v10Save(){localStorage.setItem(V10KEY,JSON.stringify(V10));v10Render();}
+function v10Log(type){const day=new Date().toISOString().slice(0,10);V10.plan[day]=V10.plan[day]||[];if(!V10.plan[day].includes(type))V10.plan[day].push(type);}
+function v10SaveProfile(){V10.profile.name=$('v10name').value.trim();V10.profile.examMonth=$('v10examMonth').value;V10.profile.hours=Math.max(1,+$('v10hours').value||5);V10.profile.confidence=$('v10confidence').value;$('v10ProfileOut').innerHTML='<span class="v10-ok">✓ 学习档案已保存</span>';v10Log('profile');v10Save();}
+function v10SaveGoal(){V10.profile.goal=$('v10goal').value.trim();v10Log('goal');v10Save();}
+function v10WeakUnit(){let m=(typeof s!=='undefined'&&s.mastery)?s.mastery:{u1:0,u2:0,u3:0,u4:0,u5:0};return Object.entries(m).sort((a,b)=>(+a[1]||0)-(+b[1]||0))[0]?.[0]||'u1';}
+function v10UnitName(u){return ({u1:'Businesses & Ideas',u2:'Marketing',u3:'Saving & Finance',u4:'Management & Strategy',u5:'Goals & Investing'})[u]||u.toUpperCase();}
+function v10RenderProfile(){if(!$('v10name'))return;$('v10name').value=V10.profile.name||'';$('v10examMonth').value=V10.profile.examMonth||'';$('v10hours').value=V10.profile.hours||5;$('v10confidence').value=V10.profile.confidence||'刚开始';$('v10goal').value=V10.profile.goal||'';}
+function v10RenderPlanner(){if(!$('v10PlannerGrid'))return;let u=v10WeakUnit(),hours=Math.max(1,+V10.profile.hours||5),labels=['概念','情境题','计算','闪卡','错题','项目','休息/模拟'];$('v10PlanSummary').innerHTML='<b>本周核心：</b> '+v10UnitName(u)+' · 每周 '+hours+' 小时 · 建议优先补强 '+u.toUpperCase();let now=new Date(),start=new Date(now);start.setDate(now.getDate()-((now.getDay()+6)%7));let days=['一','二','三','四','五','六','日'];$('v10PlannerGrid').innerHTML=Array.from({length:7},(_,i)=>{let d=new Date(start);d.setDate(start.getDate()+i);let key=d.toISOString().slice(0,10),done=(V10.plan[key]||[]).includes('study'),today=key===new Date().toISOString().slice(0,10);let task=labels[i]||'学习';return `<div class="v10-day ${done?'done':''} ${today?'today':''}" onclick="v10ToggleDay('${key}')"><strong>周${days[i]}</strong><small>${d.getMonth()+1}/${d.getDate()}</small><div style="margin-top:7px;font-size:12px">${done?'✅ 已完成':'⬜ '+task}</div></div>`}).join('');$('v10PlanAdvice').innerHTML='<p>建议每次专注 25–45 分钟，结束后立即记录一个“为什么”解释。</p><p>当前最弱：<b>'+u.toUpperCase()+'</b>。先概念，后情境题，再做一次应用。</p>';$('v10PlanLog').textContent=Object.keys(V10.plan).sort().slice(-8).map(k=>k+'：'+(V10.plan[k]||[]).join(', ')).join(' · ')||'尚无记录';}
+function v10ToggleDay(key){V10.plan[key]=V10.plan[key]||[];let i=V10.plan[key].indexOf('study');if(i>=0)V10.plan[key].splice(i,1);else{V10.plan[key].push('study');if(typeof award==='function')award(10,3)}v10Save();}
+function v10FocusText(){let pool=[['u1','竞争优势：写出“价值 + 难复制”的具体例子。'],['u2','市场研究：判断样本偏差和 primary / secondary research。'],['u3','财务：用现金流而不是利润判断流动性。'],['u4','战略：用 SWOT 或五力解释一个具体决策。'],['u5','理财：先确定目标期限，再讨论风险和资产。']];let u=v10WeakUnit();return pool.find(x=>x[0]===u)?.[1]||pool[0][1]}
+function v10PickFocus(){let u=v10WeakUnit();$('v10FocusCard').innerHTML='<span class="v10-chip">'+u.toUpperCase()+'</span><h3>'+v10UnitName(u)+'</h3><p>'+v10FocusText()+'</p>'}
+function v10Tick(){if(!V10.focus.running)return;let rem=Math.max(0,V10.focus.end-Date.now());V10.focus.seconds=Math.ceil(rem/1000);let min=Math.floor(V10.focus.seconds/60),sec=V10.focus.seconds%60;$('v10Clock').textContent=String(min).padStart(2,'0')+':'+String(sec).padStart(2,'0');let pct=Math.min(100,Math.max(0,(1-rem/1500000)*100));$('v10Ring').style.setProperty('--pct',pct+'%');if(rem<=0){V10.focus.running=false;$('v10FocusMsg').innerHTML='<span class="v10-ok"><b>专注完成！</b> 去做一道题并写一句总结。</span>';v10Log('focus');if(typeof award==='function')award(25,8);v10Save()}else localStorage.setItem(V10KEY,JSON.stringify(V10));}
+function v10StartFocus(){if(V10.focus.seconds<=0||V10.focus.seconds>1500)V10.focus.seconds=1500;V10.focus.end=Date.now()+V10.focus.seconds*1000;V10.focus.running=true;$('v10FocusMsg').textContent='专注进行中；建议不要切换任务。';v10Save()}
+function v10PauseFocus(){if(!V10.focus.running)return;V10.focus.seconds=Math.max(0,Math.ceil((V10.focus.end-Date.now())/1000));V10.focus.running=false;$('v10FocusMsg').textContent='已暂停。';v10Save()}
+function v10ResetFocus(){V10.focus.running=false;V10.focus.seconds=1500;$('v10Clock').textContent='25:00';$('v10Ring').style.setProperty('--pct','0%');$('v10FocusMsg').textContent='准备开始一个专注区间。';v10Save()}
+function v10ToggleFav(q,unit,exp){let idx=V10.favorites.findIndex(x=>x.q===q);if(idx>=0)V10.favorites.splice(idx,1);else V10.favorites.unshift({q,unit,exp});v10Save();}
+function v10RenderFavorites(){let box=$('v10FavList');if(!box)return;if(!V10.favorites.length){box.innerHTML='<div class="card"><b>还没有收藏题目。</b><p class="muted">在自适应练习或题库中可以收藏值得二刷的题。</p></div>';return}box.innerHTML=V10.favorites.map((x,i)=>`<div class="v10-fav"><div class="qtext"><span class="v10-chip">${x.unit.toUpperCase()}</span><b>${x.q}</b><p class="muted small">${x.exp||''}</p></div><button class="v10-star" title="取消收藏" onclick="v10ToggleFav(${JSON.stringify(x.q)},${JSON.stringify(x.unit)},${JSON.stringify(x.exp||'')})">★</button></div>`).join('')}
+function v10PatchQuiz(){let boxes=document.querySelectorAll('#quizBox .q');boxes.forEach((q,i)=>{if(q.dataset.v10patched)return;q.dataset.v10patched='1';let unit=q.dataset.unit||'u1',txt=q.querySelector('b')?.innerText||('题目 '+(i+1)),exp=qs[i]?.[4]||'';let row=document.createElement('div');row.style.marginTop='7px';row.innerHTML='<button class="btn secondary" style="padding:6px 9px;font-size:12px" type="button">☆ 收藏</button>';row.querySelector('button').onclick=()=>v10ToggleFav(txt,unit,exp);q.appendChild(row)})}
+function v10Render(){v10RenderProfile();v10RenderPlanner();v10PickFocus();v10RenderFavorites();if(document.getElementById('quizBox'))setTimeout(v10PatchQuiz,0);}
+window.addEventListener('load',()=>{if(V10.focus.running&&V10.focus.end>Date.now()){}else V10.focus.running=false;v10Render();setInterval(v10Tick,250);});
+</script>
+</body></html>
